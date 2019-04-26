@@ -1,0 +1,823 @@
+ @font-face {
+    font-family: 'font_awesome_5_brandsregular';
+    src: url('../fonts/font_awesome_5_brands-regular-400-webfont.eot') format('embedded-opentype'), 
+         url('../fonts/font_awesome_5_brands-regular-400-webfont.woff2') format('woff2'), src: url('font_awesome_5_brands-regular-400-webfont.woff') format('woff'), url('font_awesome_5_brands-regular-400-webfont.ttf') format('truetype'), url('../fonts/font_awesome_5_brands-regular-400-webfont.svg#font_awesome_5_brandsregular') format('svg'), url('font_awesome_5_brands-regular-400-webfont.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+*{
+	margin: 0;
+    padding: 0;
+}
+
+body {
+	width: 100%;
+	height: 100vh;
+}
+
+
+
+H1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+    text-transform: capitalize;
+    color: white;
+    /* width: 100%; */
+}
+
+H2 {
+    font-size: 1.5em;
+    color: white;
+}
+
+H4 {
+    font-size: 1em;
+    color: yellow; 
+}
+
+H5 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5em;
+    text-transform: capitalize;
+    color: white;
+    /* width: 100%; */
+}
+
+#Ref {
+    background-color: #76728d;
+    height: 130px;
+    /* margin-top: 100px; */
+}
+
+
+
+a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1em;
+}
+
+a:hover {
+    color: purple;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1em;
+}
+
+
+/* Lettrine */
+#lettrine:first-of-type:first-letter {
+    /* font-family: 'Orbitron', sans-serif; */
+    font-family: 'Unlock', cursive;
+    float:left;
+    font-size: 4em;
+    padding: 0 0.1em 0 0;
+    margin-top: -10px;
+  }
+
+/* MOBILE ------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* @media screen and (max-width: 411px) */
+
+
+
+/* Header ------------------------------------------------------------------------------------------------------------------------------------------------ */
+#ParallaxLion {
+    z-index: 1;
+    width: 1903px;
+    height: 950px;
+    background-color: white;
+    background-image: url(../img/Portfolio-sicca-lion.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+#headerRealisation {
+    z-index: 1;
+    width: 1903px;
+    height: 950px;
+    background-color: white;
+    background-image: url(../img/sicca-lion.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+
+
+
+/* #cv {
+    z-index: 1;
+    width: 1903px;
+    height: 950px;
+    background-color: white;
+    background-image: url(../img/sicca-lion2.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+} */
+/* Menu --------------------------------------------------------------------------------------------------------------------------------------------------- */
+nav {
+    font-family: 'Orbitron', sans-serif;
+    width: 100%;
+    height: 90px;
+    border-bottom: 2px solid #ffffff;
+    border-width: 1px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color: #5500a5c5;
+    
+    position: sticky;
+    /* display: table;
+    margin: 0 auto; */
+}
+
+.nav > * {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.nav-is-stuck .main-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	animation: stickAnim .3s;
+}
+ 
+@keyframes stickAnim {
+	0% {
+		transform: translateY(-186px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.hightbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 90px;
+}
+
+.logo {
+    background: url(../img/logo-sicca.png) no-repeat;
+    margin: 20px 0px 0px 0px;
+    width: 128px;
+    height: 45px;
+}
+
+.nav_menu {
+    /* width: 920px; */
+    width: 1150px;
+    height: 90px;
+    line-height: 90px;
+    text-transform: uppercase
+}
+
+
+/* Navigation menu haut Hover */
+
+.nav_menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    text-decoration: none;
+}
+
+.nav_menu ul a {
+    text-decoration: none;
+    color: white;
+    padding: 36px 27px 36px 27px;
+    font-size: 1.1em;
+}
+
+.nav_menu ul a:hover {
+    text-decoration: none;
+    background-color: #a50000;
+    color: white;
+    padding: 36px 27px 36px 27px;
+}
+
+.nav_menu ul a:active {
+    text-decoration: none;
+    background-color: purple;
+    color: white;
+    padding: 36px 27px 36px 27px;
+}
+
+
+/* Activation page en cours */
+.nav_menu ul #en-cours a {
+    background-color: #a50000;
+    color: #fff;
+    padding: 36px 27px 36px 27px;
+}
+
+
+
+.ContentSection {
+    width: 900px;
+    padding: 35px 0px 35px 0px;
+    /* background-color: chocolate; */
+    
+}
+
+/* à propos --------------------------------------------------------------------------------------------------------------------------------------------- */
+#sectionApropos {
+    z-index: 3;
+    width: 100%;
+    height: 580px;
+    /* color: black; */
+    background-color: #76728d;
+    display: flex;
+	justify-content: center;
+}
+
+#sectionApropos p {
+    /* font-family: 'Dancing Script', cursive; */
+    font-family: 'Charmonman', cursive;
+    font-size: 1.4em;
+    color : white;
+    text-align: justify;
+    text-justify: inter-word;
+
+}
+
+.flotte img {
+    float: right;
+    padding: 0 0 0 0.2em;
+    }
+
+/* Quote citation */
+#QuoteImg {
+    margin-left: 80%;
+    /* margin-top: 30px; */
+    padding: 10px 10px 10px 10px;
+}
+/* Logo */
+#LogosImg {
+    width: 100%;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap : wrap;
+    align-items: center;
+    /* margin-top: 30px; */
+   padding: 0 0 10px 0;
+}
+/* Paralaxe Lion Vide */
+#parallaxLionvide {
+    z-index: 4;
+    width: 100%;
+    height: 925px;
+    /* color: white; */
+    background-color: white;
+    background-image: url(../img/sicca-lion.jpg);
+    background-attachment: fixed;
+}
+/* Mon CV ------------------------------------------------------------------------------------------------------------------------------------ */
+#sectionCV {
+    z-index: 5;
+    width: 100%;
+    height: 1400px;
+    /* color: white; */
+    background-color: #76728d;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap : wrap;
+}
+
+.pdf {
+    width : 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap : wrap;
+    align-items: center;
+
+}
+
+
+
+/* Parallax Aigle ----------------------------------------------------------------------------------------------------------------------------------------- */
+#parallaxAigle {
+    z-index: 8;
+    width: 100%;
+    height: 925px;
+    /* color: white; */
+    background-color: white;
+    background-image: url(../img/aigle.jpg);
+    background-attachment: fixed;
+}
+/* Section Contact ---------------------------------------------------------------------------------------------------------------------------------------- */
+#sectionContact {
+    z-index: 9;
+    width: 100%;
+    height: 610px;
+    /* color: white; */
+    background-color: white;
+    background-image: url(../img/contact_sicca.jpg);
+    display: flex;
+    justify-content: center;
+}
+
+/* Contact --------------------------------------------------------------------------------------------------------------------------------------------- */
+.clearer {
+    clear:both;
+}
+#result_contact {
+    font-family: courier;
+}
+
+.contact {
+    /* background-color: #9c0021; */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1em;;
+    color: white;
+    width: 900px;
+    padding: 35px 0px 35px 0px;
+    color: white;
+    height: 550px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+#titreContact {
+    width: 100%;
+}
+
+fieldset {
+    width: 100%;
+    height: 30%;
+    border: 1px solid #ffffff;
+    border-radius: 1em;
+    padding: 1.5em;
+    margin: 0.2em;
+    background-color: rgba(68, 19, 148, 0.25);
+    
+}
+
+.contact input{
+    font-family: 'Orbitron', sans-serif;
+    background: #44009c;
+    color: white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0.4em;
+    padding-left: 10px;
+    /* padding: 5px 5px 5px 5px; */
+    margin: 5px 5px 5px 5px;
+    width: 47%;
+    height: 40px;
+}
+
+
+.contact input[type="objet"] {
+    width: 100%;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin: 0.2em;
+    background-color: rgba(68, 19, 148, 0.25);
+    padding-left: 10px;
+}
+.contact ::placeholder {
+    color: white;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background-color: rgba(68, 19, 148, 0.25);
+    font-size: 16px;
+    resize: none;
+    color: white;
+    margin: 0.2em;
+    
+}
+
+
+
+input[type=button],
+input[type=submit],
+input[type=reset],
+
+#boutonContact {
+    padding: 5px 15px;
+    margin: 3px 4px;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 26px;
+    cursor: pointer;
+    background: #7708c6;
+    background: linear-gradient(top, #7708c6 0%, #5e00ad 100%);
+    background: -moz-linear-gradient(top, #7708c6 0%, #5e00ad 100%);
+    background: -webkit-linear-gradient(top, #7708c6 0%, #5e00ad 100%);
+    background: -o-linear-gradient(top, #7708c6 0%, #5e00ad 100%);
+    border: 1px solid #9017E6;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    -moz-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    -o-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.50);
+}
+
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover,
+#boutonContact:hover {
+    background: linear-gradient(top, #9122e0 0%, #7708c6 100%);
+    background: -moz-linear-gradient(top, #9122e0 0%, #7708c6 100%);
+    background: -webkit-linear-gradient(top, #9122e0 0%, #7708c6 100%);
+    background: -o-linear-gradient(top, #9122e0 0%, #7708c6 100%);
+}
+
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active,
+#boutonContact:active {
+    opacity: 0.8;
+}
+/* Parallax Ballon */
+#parallaxBallon {
+    z-index: 10;
+    width: 100%;
+    height: 925px;
+    /* color: white; */
+    background-color: white;
+    background-image: url(../img/ballon-nuage.jpg);
+    background-attachment: fixed;
+}
+
+
+/* Logos Partenaires */
+
+#section10 {
+    z-index: 11;
+    width: 100%;
+    height: 250px;
+    /* color: black; */
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo1 {
+    /* background: url(../img/logo_onlineformapro.png) no-repeat; */
+    /* margin: 20px 0px 0px 0px; */
+    width: 374px;
+    height: 63px;
+}
+
+.logo2 {
+    /* background: url(../img/logo_onlineformapro.png) no-repeat; */
+    /* margin: 20px 0px 0px 0px; */
+    width: 209px;
+    height: 162px;
+}
+
+.logo3 {
+    /* background: url(../img/logo_onlineformapro.png) no-repeat; */
+    /* margin: 20px 0px 0px 0px; */
+    width: 384px;
+    height: 99px;
+}
+
+.logo4 {
+    /* background: url(../img/logo_onlineformapro.png) no-repeat; */
+    /* margin: 20px 0px 0px 0px; */
+    width: 409px;
+    height: 101px;
+}
+
+
+/* Footer ------------------------------------------------------------------------------------------------------------------------------------------*/
+
+#section11 {
+    z-index: 12;
+    width: 100%;
+    height: 150px;
+    /* color: black; */
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: #76728d; */
+    background-image: url(../img/mentions3.jpg);
+    background-attachment: fixed;
+}
+
+
+
+/* Mentions ------------------------------------------------------------------------------------------------------------------------------------ */
+.mentions {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    width: 40%;
+    margin-left: 10%;
+    color: white;
+}
+
+
+/* Roll hover mentions */
+
+.mentions a {
+    text-decoration: none;
+    color: white;
+}
+
+.mentions a:hover {
+    color: purple;
+    text-decoration: none;
+}
+
+.mentions a:active {
+    color: #c216b9;
+    text-decoration: none;
+}
+/* Réseaux Sociaux ---------------------------------------------------------------------------------------------------------------------------------- */
+.social {
+    font-family: 'font_awesome_5_brandsregular';
+    width: 40%;
+    margin-left: 10%;
+}
+
+.social a {
+    text-decoration: none;
+    color: white;
+    font-family: font_awesome_5_brandsregular;
+    font-size: 2em;
+    padding: 10px 14px 10px 14px;
+    margin: 10px;
+
+    background-color: rgba(107, 7, 179, 0.514);
+    background-image: linear-gradient( #9017E6, rgba(255,255,255,0));
+    transition: background-color 1s;
+
+    /* background-color: rgba(255, 255, 255, 0.2); */
+
+    box-shadow: 4px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    border: 0.5px solid #9017E6;
+    border-radius: 50%;
+    -moz-border-radius: 50%x;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%; 
+}
+
+.social a:hover {
+    /* color: #b4b4b4; */
+    color: white;
+    text-decoration: none;
+    /* background-color: blue; */
+    /* padding: 5px 27px 5px 27px; */
+    padding: 20px 24px 20px 24px;
+    margin: 10px;
+    background-color:rgba(178, 108, 228, 0.514);
+    transition: padding 0.5s;
+    /* border-radius: 10%;
+    -moz-border-radius: 10%x;
+    -webkit-border-radius: 10%;
+    -o-border-radius: 10%; */
+    
+    
+}
+
+.social a:active {
+    text-decoration: none;
+    color: #c216b9;
+    padding: 20px 24px 20px 24px;
+}
+
+#carteVisite {
+    z-index: 13;
+    width: 800px;
+    height: 600px;
+    /* color: black; */
+    background-color: #9017E6;
+}
+
+/* Backtop --------------------------------------------------------------------------------------------------------------------------------------------- */
+#backtop{
+    position:fixed;
+    /* La couleur de fond*/
+    background:#eff0d4;
+    /*La bordure*/
+    border:2px solid purple;
+    /* la longueur et l'espace autour du texte*/
+    width:135px;
+    padding:12px;
+    /* On place le bloc en bas à droite*/
+    right:30px;
+    bottom:35px;
+    /* On ajoute un bord arrondi pour les navigateurs compatibles*/
+    border-radius:7px;-moz-border-radius:7px;-khtml-border-radius:7px;-webkit-border-radius:7px    
+}
+
+#backtop:hover{
+    /*On change le curseur de la souris au survol*/
+    cursor:pointer;
+    /*On change la couleur de fond au survol*/
+    background:purple;
+    /*On change la couleur de la bordure au survol*/
+    border:2px solid #eff0d4;
+    /*On change la couleur de texte au survol*/
+    color:white;
+}
+
+#backtop:focus{outline:0}
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner{border:0;outline:none}
+
+/* Lightbox Carte de visite ---------------------------------------------------------------------------------------------------------------------------- */
+#shadowing
+{
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:15;
+	opacity:0.6;
+	filter: alpha(opacity=60);
+}
+
+#box 
+{
+	display: none;
+	position: fixed;
+	top: 20%;
+	left: 30%;
+	width: 100%;
+	height: 100%;
+    max-width:800px;
+	max-height:600px;
+	padding: 0;
+	margin:0;
+	border: 1px solid black;
+    background-color: white;
+    
+	z-index:16;
+}
+
+
+#boxcontent
+{
+	left:0;
+	right:0;
+	bottom:0;
+	margin:0;
+	padding: 8px;
+	overflow: auto;
+	width:100%;
+    height:100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+
+/* Page Realisations ---------------------------------------------------------------------------------------------------------------------------------- */
+/* Section HTML & CSS --------------------------------------------------------------------------------------------------------------------------------- */
+
+#ContentProjetHead {
+    width: 1600px;
+    height: 830px;
+    padding: 15px 0px 15px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.ContentProjet {
+    width: 1600px;
+    height: 900px;
+    padding: 15px 0px 15px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.contentRealisations {
+    width: 47%;
+    height: 40%;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1em;
+    background-color: rgba(0, 0, 255, 0.5);
+    border: 1px solid #9017E6;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    -moz-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    -o-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.50);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1%;
+    
+}
+
+.captureEcran {
+    width:60%;
+    /* background-color: #a50000; */
+}
+
+.captureEcran img {
+    width:100%;
+    height: 100%;
+}
+
+.description {
+    width:40%;
+    /* background-color: #42a500; */
+    text-justify: distribute-all-lines;
+    
+}
+
+#sectionHTMLCSS {
+    z-index: 2;
+    width: 100%;
+    height: 1080px;
+    /* color: black; */
+    display: flex;
+    justify-content: center;
+}
+
+/* Com Code */
+.sectionCom {
+    z-index: 3;
+    width: 100%;
+    height: 580px;
+    /* color: black; */
+    background-color: #76728d;
+    display: flex;
+	justify-content: center;
+}
+
+.sectionCom p {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.7em;
+    color : white;
+    text-align: justify;
+    text-justify: inter-word;
+
+}
+
+/* Section Javascript -------------------------------------------------------------------------------------------------------------------- */
+#sectionJavascript {
+    z-index: 6;
+    width: 100%;
+    height: 924px;
+    /* color: white; */
+    background-color: white;
+    background-image: url(../img/espace.jpg);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    
+}
+
+/* Section PHP -------------------------------------------------------------------------------------------------------------------- */
+#sectionPhp {
+    z-index: 7;
+    width: 100%;
+    height: 924px;
+    /* color: white; */
+    background-color: white;
+    background-image: url(../img/galaxy.jpg);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    
+}

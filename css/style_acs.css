@@ -1,0 +1,278 @@
+@font-face {
+    font-family: 'font_awesome_5_brandsregular';
+    src: url('font_awesome_5_brands-regular-400-webfont.eot') format('embedded-opentype'), url('../fonts/font_awesome_5_brands-regular-400-webfont.woff2') format('woff2'), src: url('font_awesome_5_brands-regular-400-webfont.woff') format('woff'), url('font_awesome_5_brands-regular-400-webfont.ttf') format('truetype'), url('../fonts/font_awesome_5_brands-regular-400-webfont.svg#font_awesome_5_brandsregular') format('svg'), url('font_awesome_5_brands-regular-400-webfont.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+H1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+}
+
+H2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+header {
+    z-index: 1;
+    width: 1903px;
+    height: 900px;
+    background-color: white;
+    background-image: url(../img/header-bg.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+nav {
+    width: 100%;
+    height: 90px;
+    border-bottom: 2px solid #86878c;
+    border-width: 1px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hightbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 90px;
+}
+
+.logo {
+    background: url(../img/logo_accesscode.png) no-repeat;
+    margin: 20px 0px 0px 0px;
+    width: 175px;
+    height: 45px;
+}
+
+.nav_menu {
+    width: 701px;
+    height: 90px;
+    line-height: 90px;
+    text-transform: uppercase
+}
+
+
+/* Navigation menu haut */
+
+.nav_menu ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+    /* color: white; */
+    text-decoration: none;
+}
+
+.nav_menu ul a {
+    text-decoration: none;
+    color: white;
+    padding: 34px 27px 34px 27px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+.nav_menu ul a:hover {
+    text-decoration: none;
+    background-color: #d31f44;
+    color: white;
+    padding: 34px 27px 34px 27px;
+}
+
+.nav_menu ul a:active {
+    text-decoration: none;
+    background-color: purple;
+    color: white;
+    padding: 34px 27px 34px 27px;
+}
+
+
+/* Activation page en cours */
+
+.nav_menu ul #en-cours a {
+    background-color: #d31f44;
+    color: #fff;
+    padding: 34px 27px 34px 27px;
+}
+
+.section2 {
+    z-index: 2;
+    width: 100%;
+    height: 460px;
+    /* color: black; */
+    background-color: white;
+}
+
+.section3 {
+    z-index: 3;
+    width: 100%;
+    height: 440px;
+    /* color: white; */
+    background-color: white;
+    background-image: url(../img/projet-collaboratif-bg.jpg);
+}
+
+.section4 {
+    z-index: 4;
+    width: 100%;
+    height: 575px;
+    /* color: white; */
+    background-color: #3e3e3e;
+}
+
+.section5 {
+    z-index: 5;
+    width: 100%;
+    height: 455px;
+    /* color: black; */
+    background-color: white;
+}
+
+.section6 {
+    z-index: 6;
+    width: 100%;
+    height: 400px;
+    /* color: white; */
+    background-color: white;
+    background-image: url(../img/projet-bg1.png);
+}
+
+.section7 {
+    z-index: 7;
+    width: 100%;
+    height: 830px;
+    /* color: black; */
+    background-color: white;
+}
+
+.section8 {
+    z-index: 8;
+    width: 100%;
+    height: 610px;
+    /* color: white; */
+    background-color: white;
+    background-image: url(../img/temoignages-bg.png);
+}
+
+.section9 {
+    z-index: 9;
+    width: 100%;
+    height: 780px;
+    /* color: white; */
+    background-color: #a50627;
+}
+
+
+/* Logos Partenaires */
+
+.section10 {
+    z-index: 10;
+    width: 100%;
+    height: 250px;
+    /* color: black; */
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo1 {
+    /* background: url(../img/logo_onlineformapro.png) no-repeat; */
+    /* margin: 20px 0px 0px 0px; */
+    width: 374px;
+    height: 63px;
+}
+
+.logo2 {
+    /* background: url(../img/logo_onlineformapro.png) no-repeat; */
+    /* margin: 20px 0px 0px 0px; */
+    width: 209px;
+    height: 162px;
+}
+
+.logo3 {
+    /* background: url(../img/logo_onlineformapro.png) no-repeat; */
+    /* margin: 20px 0px 0px 0px; */
+    width: 384px;
+    height: 99px;
+}
+
+.logo4 {
+    /* background: url(../img/logo_onlineformapro.png) no-repeat; */
+    /* margin: 20px 0px 0px 0px; */
+    width: 409px;
+    height: 101px;
+}
+
+
+/* Footer */
+
+.section11 {
+    z-index: 11;
+    width: 100%;
+    height: 150px;
+    /* color: black; */
+    background-color: #3e3e3e;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mentions {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+
+/* Roll hover mentions */
+
+.mentions a {
+    text-decoration: none;
+    color: white;
+}
+
+.mentions a:hover {
+    color: #b4b4b4;
+    text-decoration: none;
+}
+
+.mentions a:active {
+    color: purple;
+    text-decoration: none;
+}
+
+.social {
+    font-family: 'font_awesome_5_brandsregular';
+}
+
+.social a {
+    text-decoration: none;
+    color: white;
+    font-family: font_awesome_5_brandsregular;
+    font-size: 30px;
+    padding: 5px 27px 5px 27px;
+}
+
+.social a:hover {
+    /* color: #b4b4b4; */
+    color: darkslategrey;
+    text-decoration: none;
+    /* background-color: blue; */
+    padding: 5px 27px 5px 27px;
+}
+
+.social a:active {
+    text-decoration: none;
+    color: purple;
+    padding: 5px 27px 5px 27px;
+}

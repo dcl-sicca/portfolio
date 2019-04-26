@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Classer des div en fonctions de leurs attributs data-*</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/classement.css">
+        <!-- JS -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/custom.js"></script>
+    </head>
+    <body>
+        <div class="container main-container">
+            <div class="form-group">
+                <label for="select-order">Classer par</label>
+                <select class="form-control" id="select-order">
+                    <option value="position">Position</option>
+                    <option value="an">Année</option>
+                    <option value="techno">Technologie</option>
+                </select>
+            </div>
+
+            <div class="card-container row">
+                <div class="item col-md-4" data-position="1" data-an="2001" data-techno="HTML5">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="img/classement/1x400_200.jpg" alt="illustration">
+                        <div class="card-body">
+                            <h3 class="card-title">HTML5</h3>
+                            <div class="card-subtitle">Position : 1</div>
+                            <div class="card-text">Année : 2001</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item col-md-4" data-position="2" data-an="2015" data-techno="Java">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="img/classement/2x400_200.jpg" alt="illustration">
+                        <div class="card-body">
+                            <h3 class="card-title">Java</h3>
+                            <div class="card-subtitle">Position : 2</div>
+                            <div class="card-text">Année : 2015</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item col-md-4" data-position="3" data-an="2007" data-techno="CSS">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="img/classement/3x400_200.jpg" alt="illustration">
+                        <div class="card-body">
+                            <h3 class="card-title">CSS</h3>
+                            <div class="card-subtitle">Position : 3</div>
+                            <div class="card-text">Année : 2007</div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+            <!-- <table class="card-container" class="table table-striped table-dark">
+                  <thead>
+                    <tr>
+                      <th style="width:5%" scope="col">Année</th>
+                      <th style="width:15%" scope="col">Ecran</th>
+                      <th style="width:20%;text-align: center;" scope="col">Technologie</th>
+                      <th style="width:40%" scope="col">Description</th>
+                      <th style="width:20%" scope="col">site</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+              
+                    <tr class="item" data-position="1" data-an="2001" data-techno="HTML5">
+                        <th scope="row">2007</th>
+                        <td><img class="snapEcran thumbnail zoom" src="img/classement/1x400_200.jpg"></td>
+                        <td style="text-align: center;"><img class="logos" src="img/logos/php-logo.png"><img class="logos" src="img/logos/HTML5-logo.png"><img class="logos" src="img/logos/CSS3-logo.png"><img class="logos" src="img/logos/js-logo.png"></td>
+                        <td>Ameria v1 : Première version du site de mon agence de communication</td>
+                        <td><a href="http://www.sicca-area.com/references/ameria-v1/" target="blank"><i class="fas fa-external-link-alt"></i> www.ameria.fr</a></td>
+                    </tr>
+                    <tr class="item" data-position="2" data-an="2015" data-techno="Java">
+                        <th scope="row">2012</th>
+                        <td><img class="snapEcran thumbnail zoom" src="img/classement/2x400_200.jpg"></td>
+                        <td style="text-align: center;"><img class="logos" src="img/logos/wordpress.png"></td>
+                        <td>Ameria v2 : Deuxième version du site de mon agence de communication</td>
+                        <td><a href="http://www.sicca-area.com/references/ameria-v2/" target="blank"><i class="fas fa-external-link-alt"></i> www.ameria.fr</a></td>
+                    </tr>
+                    <tr class="item" data-position="3" data-an="2007" data-techno="CSS">
+                      <th scope="row">2014</th>
+                      <td><img class="snapEcran thumbnail zoom" src="img/classement/3x400_200.jpg"></td>
+                      <td style="text-align: center;"><img class="logos" src="img/logos/wordpress.png"></td>
+                      <td>CGPME : Association de PME</td>
+                      <td><a href="http://www.sicca-area.com/references/cgpme/" target="blank"><i class="fas fa-external-link-alt"></i> www.cgpme18.org</a></td>
+                    </tr>
+                  </tbody>
+               </table> -->
+        </div>
+    </body>
+</html>

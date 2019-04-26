@@ -1,0 +1,19 @@
+header {
+    /* tous le header */
+}
+
+@media (min-width: 36em) {
+    header {
+        /* tout le header pour smartphone 576px mini */
+    }
+}
+
+footer {
+    /* tout le footer */
+}
+
+@media (min-width: 36em) {
+    footer {
+        /* tout le header pour smartphone 576px mini */
+    }
+}

@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Classer des div en fonctions de leurs attributs data-*</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/classement.css">
+        <!-- JS -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/custom.js"></script>
+    </head>
+    <body>
+        <div class="container main-container">
+            <div class="form-group">
+                <label for="select-order">Classer par</label>
+                <select class="form-control" id="select-order">
+                    <option value="position">Position</option>
+                    <option value="an">Année</option>
+                    <option value="techno">Technologie</option>
+                </select>
+            </div>
+            <div class="card-container row">
+                <div class="item col-md-4" data-position="1" data-an="2018" data-techno="HTML3">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="img/classement/1x400_200.jpg" alt="illustration">
+                        <div class="card-body">
+                            <h3 class="card-title">HTML3</h3>
+                            <div class="card-subtitle">Position : 1</div>
+                            <div class="card-text">Année : 2018</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item col-md-4" data-position="2" data-an="2015" data-techno="HTML5">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="img/classement/2x400_200.jpg" alt="illustration">
+                        <div class="card-body">
+                            <h3 class="card-title">HTML5</h3>
+                            <div class="card-subtitle">Position : 2</div>
+                            <div class="card-text">Année : 2015</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item col-md-4" data-position="3" data-an="2007" data-techno="Java">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="img/classement/3x400_200.jpg" alt="illustration">
+                        <div class="card-body">
+                            <h3 class="card-title">Java</h3>
+                            <div class="card-subtitle">Position : 3</div>
+                            <div class="card-text">Année : 2007</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item col-md-4" data-position="4" data-an="2004" data-techno="CSS">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="img/classement/4x400_200.jpg" alt="illustration">
+                        <div class="card-body">
+                            <h3 class="card-title">CSS</h3>
+                            <div class="card-subtitle">Position : 4</div>
+                            <div class="card-text">Année : 2004</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item col-md-4" data-position="5" data-an="2006" data-techno="HTML4">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="img/classement/5x400_200.jpg" alt="illustration">
+                        <div class="card-body">
+                            <h3 class="card-title">HTML4</h3>
+                            <div class="card-subtitle">Position : 5</div>
+                            <div class="card-text">Année : 2006</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item col-md-4" data-position="6" data-an="2002" data-techno="HTML5">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="img/classement/6x400_200.jpg" alt="illustration">
+                        <div class="card-body">
+                            <h3 class="card-title">HTML5</h3>
+                            <div class="card-subtitle">Position : 6</div>
+                            <div class="card-text">Année : 2002</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- les elements avec les differents valeurs -->
+            </div>
+        </div>
+    </body>
+</html>

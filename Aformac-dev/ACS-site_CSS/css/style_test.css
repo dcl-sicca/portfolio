@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: black;
+    display: flex
+}
+
+.boites {
+    background-color: black;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    margin: 0 5px;
+    min-widht: 300px;
+}
+
+.boites img {
+    width: 100px;
+    height: 100px;
+}

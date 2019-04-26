@@ -1,0 +1,11 @@
+MDN Web docs de Mozilla : Les formulaires
+W3schools : CTRL+F -> Forms 
+W3schools : CTRL+F -> Forms
+Google : afficher un résultat dans input type text
+Google : tester si une valeur est numérique en javascript
+Google : Google fonts -> LCD
+https://www.fontsquirrel.com/ -> LCD
+dafont.com -> LCD
+Google : limiter le contenu input en javascript
+Google : input.length max js 
+Google : forcer maxlenght input javascript

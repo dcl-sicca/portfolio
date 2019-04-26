@@ -1,0 +1,12 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+/* fond central okok */
+body {
+text-align: center;
+background-color: darkgray;
+background-image: url(../img/fond14.jpg);
+    background-attachment: fixed;
+    background-repeat: repeat;
+}

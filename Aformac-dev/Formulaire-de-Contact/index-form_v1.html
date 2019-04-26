@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Les formulaires v1</title>
+   <link rel="stylesheet" href="css/style-form_v1.css">
+</head>
+    <body>
+      <div id="container">
+        <h1>Formulaires v1</h1>
+        <form method="post" action="traitement.php">
+            <fieldset>
+                <legend>Identité</legend>
+                <label for='nom'>Nom *</label>
+                <input type='text' name='nom' id='nom' maxlength='20' size="25" required>
+                <span id='missNom'></span><br>
+                    
+                <label for='prenom'>Prénom</label>
+                <input type='text' name='prenom' id='prenom' maxlength='20' size="25" required>
+                <span id='missPrenom'></span><br>
+
+                <label for='naissance'>Date de naissance</label>
+                <input type='text' name='naissance' id='naissance' maxlength='20' size="25" required >
+                <span id='missNaissance'></span><br>
+
+                <div id="gender">
+                    <div>
+                        <input type="radio" id="homme" name="gender" value="homme" checked />
+                        <label for="homme">Homme</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="femme" name="gender" value="femme" />
+                        <label for="femme">Femme</label>
+                    </div>
+                </div>
+
+            </fieldset>
+            <fieldset>
+            <legend>Identité</legend>
+            <label for='mail'>E-mail</label>
+            <input type='email' name='mail' id='mail' size="25" required><br>
+
+            <label for='tel'>Numéro de téléphone</label>
+            <input type='tel' name='tel' id='tel' size="25" required><br>  
+            </fieldset>
+
+            <input type='submit' value='Valider' id='bouton_envoi'>
+        </form>
+      </div>
+        <script src="js/script-form_v1.js"></script>
+    </body>
+</html>

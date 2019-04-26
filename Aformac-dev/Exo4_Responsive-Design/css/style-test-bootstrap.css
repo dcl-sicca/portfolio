@@ -1,0 +1,65 @@
+img,
+video {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+p {
+    font-size: 1.125em;
+    line-height: 1.3;
+}
+
+
+/* SM 576px */
+
+@media (min-width: 36em) {
+    .container {
+        width: 33.75em;
+    }
+    p {
+        font-size: 1.375em;
+    }
+}
+
+
+/* MD 768px */
+
+@media (min-width: 48em) {
+    .container {
+        width: 45em;
+    }
+    p {
+        font-size: 1.625em;
+        line-height: 1.4;
+    }
+}
+
+
+/* LG 992px */
+
+@media (min-width: 62em) {
+    .container {
+        width: 60em;
+    }
+    p {
+        font-size: 2em;
+    }
+}
+
+
+/* XL 1200px */
+
+@media (min-width: 75em) {
+    .container {
+        width: 71.25em;
+    }
+    p {
+        font-size: 2.25em;
+        line-height: 1.5;
+    }
+}

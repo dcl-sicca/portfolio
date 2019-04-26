@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a body {
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    background-image: url(../img/fond14.jpg);
+    background-attachment: fixed;
+    background-repeat: repeat;
+}
+
+h1 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+}
+
+h2 {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+}
+
+p {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+}
+
+a {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: crimson;
+}
+
+.verticAlign {
+    background-color: darkslateblue;
+    width: 360px;
+    height: 640px;
+    position: absolute;
+    /* Centrer verticalement */
+    top: 50%;
+    margin-top: -320px;
+    /* Centrer horizontalement */
+    left: 50%;
+    margin-left: -180px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.container {
+    width: 340px;
+    background-color: blueviolet;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.container img:not(#vs):not(#winner) {
+    width: 95px;
+    height: 95px;
+    background-color: #c6baee;
+    border: 3px solid #ffffff;
+    padding: 5px;
+    /*arrondir les coins en haut à gauche et en bas à droite*/
+    /* -moz-border-radius: 10px 0;
+    -webkit-border-radius: 10px 0; */
+    border-radius: 50%;
+}
+
+.container img:not(#vs):not(#winner):hover {
+    width: 90px;
+    height: 90px;
+    padding: 6px;
+    border: 3px solid #2a0146;
+    background-color: #3f007f;
+    -webkit-box-shadow: inset 5px 5px 50px 3px #ffffff;
+    -moz-box-shadow: inset 5px 5px 50px 3px #ffffff;
+    box-shadow: inset 5px 5px 50px 3px #ffffff;
+}
+
+.container ul {
+    display: flex;
+    list-style: none;
+}
+
+.containerVictoire {
+    width: 340px;
+    /* background-color: blueviolet; */
+    padding: 10px;
+    text-align: center;
+}
+
+#vs {
+    width: 95px;
+    height: 130px;
+}
+
+#winner {
+    width: 110px;
+    height: 110px;
+}
+
+#nouveauJeu {
+    width: 340px;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset],
+button,
+.button {
+    padding: 5px 15px;
+    margin: 3px 4px;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 26px;
+    cursor: pointer;
+    background: #7708c6;
+    background: linear-gradient(top, #7708c6 0%, #5e00ad 100%);
+    background: -moz-linear-gradient(top, #7708c6 0%, #5e00ad 100%);
+    background: -webkit-linear-gradient(top, #7708c6 0%, #5e00ad 100%);
+    background: -o-linear-gradient(top, #7708c6 0%, #5e00ad 100%);
+    border: 1px solid #9017E6;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    -moz-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    -o-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25), inset 1px 1px 0px 0px rgba(255, 255, 255, 0.25);
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.50);
+}
+
+input[type=button]:hover,
+input[type=submit]:hover,
+input[type=reset]:hover,
+button:hover,
+.button:hover {
+    background: linear-gradient(top, #9122e0 0%, #7708c6 100%);
+    background: -moz-linear-gradient(top, #9122e0 0%, #7708c6 100%);
+    background: -webkit-linear-gradient(top, #9122e0 0%, #7708c6 100%);
+    background: -o-linear-gradient(top, #9122e0 0%, #7708c6 100%);
+}
+
+input[type=button]:active,
+input[type=submit]:active,
+input[type=reset]:active,
+button:active,
+.button:active {
+    opacity: 0.8;
+}

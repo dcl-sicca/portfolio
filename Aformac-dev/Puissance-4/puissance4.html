@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/puissance4.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <title>Puissance 4 Sicca & Jeanfi</title>
+</head>
+
+<!-- <body onload="starJeu();"> -->
+
+<body>
+    <div class="container">
+        <div class="titre">
+            <h1>Puissance 4</h1>
+        </div>
+
+        <div id="joueurs">
+            <div id="joueur1">
+                <h2>Joueur 1</h2>
+            </div>
+            <div id="joueur2">
+                <h2>Joueur 2</h2>
+            </div>
+        </div>
+
+
+
+        <div id="puissance4">
+            <!-- Ligne 0 -->
+            <div class="row">
+                <!-- Pour ajouter deux class, séparer par un espace -->
+                <div class="cellule" id="x0-y0">x0-y0</div>
+                <div class="cellule" id="x0-y1">x0-y1</div>
+                <div class="cellule" id="x0-y2">x0-y2</div>
+                <div class="cellule" id="x0-y3">x0-y3</div>
+                <div class="cellule" id="x0-y4">x0-y4</div>
+                <div class="cellule" id="x0-y5">x0-y5</div>
+                <div class="cellule" id="x0-y6">x0-y6</div>
+            </div>
+            <!-- Fin Ligne 0 -->
+            <!-- Ligne 1 -->
+            <div class="row">
+                <div class="cellule" id="x1-y0">x1-y0</div>
+                <div class="cellule" id="x1-y1">x1-y1</div>
+                <div class="cellule" id="x1-y2">x1-y2</div>
+                <div class="cellule" id="x1-y3">x1-y3</div>
+                <div class="cellule" id="x1-y4">x1-y4</div>
+                <div class="cellule" id="x1-y5">x1-y5</div>
+                <div class="cellule" id="x1-y6">x1-y6</div>
+            </div>
+            <!-- Fin Ligne 1 -->
+            <!-- Ligne 2 -->
+            <div class="row">
+                <div class="cellule" id="x2-y0">x2-y0</div>
+                <div class="cellule" id="x2-y1">x2-y1</div>
+                <div class="cellule" id="x2-y2">x2-y2</div>
+                <div class="cellule" id="x2-y3">x2-y3</div>
+                <div class="cellule" id="x2-y4">x2-y4</div>
+                <div class="cellule" id="x2-y5">x2-y5</div>
+                <div class="cellule" id="x2-y6">x2-y6</div>
+            </div>
+            <!-- Fin Ligne 2 -->
+            <!-- Ligne 3 -->
+            <div class="row">
+                <div class="cellule" id="x3-y0">x3-y0</div>
+                <div class="cellule" id="x3-y1">y1-x</div>
+                <div class="cellule" id="x3-y2">x3-y2</div>
+                <div class="cellule" id="x3-y3">x3-y3</div>
+                <div class="cellule" id="x3-y4">x3-y4</div>
+                <div class="cellule" id="x3-y5">x3-y5</div>
+                <div class="cellule" id="x3-y6">x3-y6</div>
+            </div>
+            <!-- Fin Ligne 3 -->
+            <!-- Ligne 4 -->
+            <div class="row">
+                <div class="cellule" id="x4-y0">x4-y0</div>
+                <div class="cellule" id="x4-y1">x4-y1</div>
+                <div class="cellule" id="x4-y2">x4-y2</div>
+                <div class="cellule" id="x4-y3">x4-y3</div>
+                <div class="cellule" id="x4-y4">x4-y4</div>
+                <div class="cellule" id="x4-y5">x4-y5</div>
+                <div class="cellule" id="x4-y6">x4-y6</div>
+            </div>
+            <!-- Fin Ligne 4 -->
+            <!-- Ligne 5 -->
+            <div class="row">
+                <div class="cellule" id="x5-y0">x5-y0</div>
+                <div class="cellule" id="x5-y1">x5-y1</div>
+                <div class="cellule" id="x5-y2">x5-y2</div>
+                <div class="cellule" id="x5-y3">x5-y3</div>
+                <div class="cellule" id="x5-y4">x5-y4</div>
+                <div class="cellule" id="x5-y5">x5-y5</div>
+                <div class="cellule" id="x5-y6">x5-y6</div>
+            </div>
+            <!-- Fin Ligne 5 -->
+        </div>
+        <div class="victoire">
+            <p>Bravo Joueur 1</p>
+        </div>
+        <div id="star">
+            <form action="" method="get">
+                <!-- <input type="button" value="Jouer" onclick="starJeu()"> -->
+                <input type="button" value="Jouer" onclick="starJeu()">
+                <input type="button" value="Reset" onclick="reload()">
+            </form>
+        </div>
+    </div>
+    <script src="js/puissance4.js"></script>
+
+</body>
+
+</html>

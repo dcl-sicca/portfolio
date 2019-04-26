@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style-shifumi.css">
+    <title>Shi-Fu-mi v1</title>
+</head>
+
+<body>
+    <div class="verticAlign">
+
+        <header>
+            <div class="container" id="titre">
+                <h1>
+                    Parpaing - Feuille <br> Tronçonneuse
+                </h1>
+            </div>
+        </header>
+
+        <main>
+            <div class="container" id="clicChifumi">
+                <img id="parpaing" src="img/parpaing.png" alt="">
+                <img id="feuille" src="img/feuille.png" alt="">
+                <img id="tronconneuse" src="img/tronconneuse.png" alt="">
+            </div>
+
+            <div class="container" id="choixChifumi">
+                <p> Faites votre choix !</p>
+            </div>
+
+            <div class="container" id="combat">
+                <div id="joueur">
+                    <div id="nomJoueur">Vous</div>
+                    <img id="joueurX" src="img/head-homme.png" alt="">
+                </div>
+
+                <img id="vs" src="img/vs.png" alt="">
+
+                <div id="ordinateur">
+                    <div id="nomIA">Ordinateur</div>
+                    <img id="iaX" src="img/ordinateur.png" alt="">
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+
+            <div class="containerVictoire" id="afficheDefaut" style="display:block">
+                <img id="winner" src="img/defaut.png" alt="">
+                <div class="txtResultat">
+                    <h2>Qui va gagner ?</h2>
+                </div> 
+            </div>
+
+            <div class="containerVictoire" id="joueurGagne" style="display:none">
+                <img id="winner" src="img/winner.png" alt="">
+                <div class="txtResultat">
+                    <h2>Bravo ! Vous êtes un champion !</h2>
+                </div> 
+            </div>
+
+            <div class="containerVictoire" id="joueurPerd" style="display:none">
+                <img id="winner" src="img/loser.png" alt="">
+                <div class="txtResultat">
+                    <h2>Bouh ! Vous êtes un looser !</h2>
+                </div> 
+            </div>
+
+            <div class="containerVictoire" id="matchNul" style="display:none">
+                <img id="winner" src="img/nul.png" alt="">
+                    <div class="txtResultat">
+                        <h2>Match Nul !</h2>
+                    </div> 
+            </div>
+
+
+            <br>
+
+            <div class="container" id="nouveauJeu">
+                <!-- <ul>
+                    <li>
+                        <a href="index-shifumi.html " target="_self ">Nouveau Jeu</a>
+                    </li>
+                </ul> -->
+                <form action="post">
+                    <input type="button" value="Nouveau Jeu">
+                </form>
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <script src="js/script-shifumi.js"></script>
+</body>
+
+</html>
