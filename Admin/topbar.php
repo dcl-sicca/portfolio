@@ -12,10 +12,10 @@
     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
     <?php
-        if (isset($_SESSION['id']) AND $userInfo['id_users'] == $_SESSION['id'])
+        if (isset($_SESSION['id']) AND $userInfo->id_users == $_SESSION['id'])
         {
     ?>        
-            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo($_SESSION['pseudo']);?></span>
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo($_SESSION['login']);?></span>
             <img class="img-profile rounded-circle" src="../img/avatar/<?php echo($_SESSION['avatar']);?>.jpg">
     <?php
         }

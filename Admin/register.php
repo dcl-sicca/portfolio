@@ -1,51 +1,6 @@
-<!-- start session -->
 <?php session_start(); ?>
-<!-- Connect Base -->
-<?php include("pdo.php"); 
+<?php include "pdo.php"; ?>
 
-
-
-
-?>
-
-<?php
-$message = null;
-  
-// check form
-if (isset($_POST['formSubscriber']))
-{
-    $firstname = ($_POST['firstname']);
-    $name = ($_POST['name']);
-    $login = ($_POST['login']);
-    $pseudo = ($_POST['pseudo']);
-    $email = ($_POST['email']);
-    $password = ($_POST['password']);
-    $password = password_hash('$password',PASSWORD_DEFAULT);
-    $avatar = 'empty';
-    $role = 2;
-
-
-
-    $reqInsert = $bdd->prepare('INSERT INTO users
-    (firstname_users, name_users, login_users, pseudo_users, email_users, pass_users, avatar_users, id_role_fk) 
-    VALUES (:firstname, :name, :login, :pseudo, :email, :password, :avatar, :role)');
-
-    $reqInsert->execute(array(
-
-        'firstname' => $firstname,
-        'name' => $name,    
-        'login' => $login,
-        'pseudo' => $pseudo,
-        'email' => $email,
-        'password' => $password,
-        'avatar' => $avatar,
-        'role' => $role,
-        ));
-
-    echo 'Membre bien ajouté';
-
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,7 +38,7 @@ if (isset($_POST['formSubscriber']))
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Inscription</h1>
               </div>
-              <form class="user" action="test.php" method="post">
+              <form class="user" action="" method="post">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="text" class="form-control form-control-user" name="firstname" placeholder="Prénom">
@@ -117,10 +72,47 @@ if (isset($_POST['formSubscriber']))
               </form>
               <hr>
               <div class="text-center">
-                <a class="small" href="forgot-password.html">Mot de passe perdu ?</a>
+                <a class="small" href="forgot-password.php">Mot de passe perdu ?</a>
               </div>
               <div class="text-center">
-                <a class="small" href="login.html">Vous avez déjà un compte ? Connectez-vous !</a>
+                <a class="small" href="login.php">Vous avez déjà un compte ? Connectez-vous !</a>
+
+                <?php
+                $message = null;
+  
+                // check form
+                if (isset($_POST['formSubscriber']))
+                {
+                    $firstname = ($_POST['firstname']);
+                    $name = ($_POST['name']);
+                    $login = ($_POST['login']);
+                    $pseudo = ($_POST['pseudo']);
+                    $email = ($_POST['email']);
+                    // $password = ($_POST['password']);
+                    // $password = password_hash('$password',PASSWORD_DEFAULT);
+                    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+                    $avatar = 'empty';
+
+                    $reqInsert = $bdd->prepare('INSERT INTO users
+                    (firstname, name, login, pseudo, email, password, avatar, id_role_fk) 
+                    VALUES (:firstname, :name, :login, :pseudo, :email, :password, :avatar, :id_role_fk)');
+
+                    $reqInsert->execute(array(
+
+                        'firstname' => $firstname,
+                        'name' => $name,    
+                        'login' => $login,
+                        'pseudo' => $pseudo,
+                        'email' => $email,
+                        'password' => $password,
+                        'avatar' => $avatar,
+                        'id_role_fk' => 2
+                        ));
+
+                    echo 'Membre bien ajouté';
+
+                }
+                ?>
               </div>
             </div>
           </div>

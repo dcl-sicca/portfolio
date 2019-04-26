@@ -17,9 +17,9 @@ $userInfo=0;
 }
 
 // Si id session = id_users alors on affiche le pseudo
-if (isset($_SESSION['id']) AND $userInfo['id_users'] == $_SESSION['id'])
+if (isset($_SESSION['id']) AND $userInfo->id_users == $_SESSION['id'])
 {
-$pseudoUser = $userInfo['pseudo_users'];
+$pseudoUser = $userInfo->pseudo;
 }
 else 
 {
@@ -77,7 +77,7 @@ $pseudoUser = 'Inconnu';
           </div>
 
             <?php
-            if (isset($_SESSION['id']) AND $userInfo['id_users'] == $_SESSION['id'])
+            if (isset($_SESSION['id']) AND $userInfo->id_users == $_SESSION['id'])
             {
             ?>        
             <!-- Content Row -->
@@ -85,7 +85,7 @@ $pseudoUser = 'Inconnu';
 
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card border-left-primary shadow h-10 py-2">
                     <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -102,7 +102,7 @@ $pseudoUser = 'Inconnu';
 
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
+                <div class="card border-left-success shadow h-10 py-2">
                     <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -119,7 +119,7 @@ $pseudoUser = 'Inconnu';
 
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
+                <div class="card border-left-info shadow h-10 py-2">
                     <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -145,7 +145,7 @@ $pseudoUser = 'Inconnu';
 
                 <!-- Pending Requests Card Example -->
                 <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card border-left-warning shadow h-10 py-2">
                     <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">

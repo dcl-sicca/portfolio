@@ -9,16 +9,12 @@
 <body>
 
 <?php 
-$firstname = ($_POST['firstname']);
-$name = ($_POST['name']);
-$login = ($_POST['login']);
-$pseudo = ($_POST['pseudo']);
-$email = ($_POST['email']);
-$password = ($_POST['password']);
 
-echo($firstname);
-echo($name);
-echo($password);
+
+
+
+echo($_GET['name']);
+echo($_GET['password']);
 
 
 ?>

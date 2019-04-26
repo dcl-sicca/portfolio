@@ -1,38 +1,73 @@
-<!-- start session -->
-<?php session_start(); ?>
-<!-- Connect Base -->
-<?php include("pdo.php"); ?>
+<?php include "pdo.php"; ?>
 
 <?php
   $message = null;
   
   // check form
-  if (isset($_POST['formConnexion']))
+
+  // if (isset($_POST['formConnexion']))
+  // {
+  //     $login = htmlspecialchars($_POST['login']);
+  //     $password = ($_POST['password']);
+  
+  //     if (!empty($login) && !empty($password))
+  //     {
+  //         $reqUser = $bdd->prepare("SELECT * FROM users WHERE login = ? AND password = ?");
+  //         $reqUser->execute(array($login, $password));
+  //         $userExist = $reqUser->rowCount();
+  
+  //         if ($userExist === 1)
+  //         {
+  //             $userInfo = $reqUser->fetch();
+  //             $_SESSION['id'] = $userInfo['id_users'];
+  //             $_SESSION['pseudo'] = $userInfo['login'];
+  //             $_SESSION['pseudo'] = $userInfo['pseudo'];
+  //             $_SESSION['avatar'] = $userInfo['avatar'];
+  //             $_SESSION['password'] =$userInfo['password'];
+  //             header("Location: index.php?id=" . $_SESSION['id']);
+  //         }
+  //         else
+  //         {
+  //             $message = "Vos identifiants sont incorrects !";
+  //         }
+  //     }
+  // }
+
+if (isset($_POST['formConnexion'])) {
+
+  if (!empty($_POST['login']) && !empty($_POST['password']))
   {
-      $pseudoUser = htmlspecialchars($_POST['pseudo']);
-      $passwordUser = ($_POST['motdepasse']);
-  
-      if (!empty($pseudoUser) && !empty($passwordUser))
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+    $sql = "SELECT * FROM users WHERE login = :login";
+    $stmt = $bdd->prepare($sql);
+    $stmt->bindParam(':login', $login);
+    $stmt->execute();
+    $result = $stmt->fetch();
+    // $isValid = password_verify($password, $result[0]);
+
+    // $isValid = password_verify ($password, $result->password);
+    // var_dump($isValid);
+
+    //   if ($isValid)
+
+      if (password_verify($password, $result->password))
       {
-          $reqUser = $bdd->prepare("SELECT * FROM users WHERE pseudo_users = ? AND pass_users = ?");
-          $reqUser->execute(array($pseudoUser, $passwordUser));
-          $userExist = $reqUser->rowCount();
-  
-          if ($userExist === 1)
-          {
-              $userInfo = $reqUser->fetch();
-              $_SESSION['id'] = $userInfo['id_users'];
-              $_SESSION['pseudo'] = $userInfo['pseudo_users'];
-              $_SESSION['avatar'] = $userInfo['avatar_users'];
-              $_SESSION['password'] =$userInfo['pass_users'];
-              header("Location: index.php?id=" . $_SESSION['id']);
-          }
-          else
-          {
-              $message = "Vos identifiants sont incorrects !";
-          }
+          session_start();
+          $_SESSION['id'] = $result->id_users;
+          $_SESSION['login'] = $result->login;
+          $_SESSION['avatar'] = $result->avatar;
+
+          // $_SESSION['avatar'] = $userInfo['avatar_users'];
+          header("Location: index.php?id=" . $_SESSION['id']);
+      }
+      else
+      {
+          $message = "Vos identifiants sont incorrects !";
       }
   }
+}
+  
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -78,10 +113,10 @@
                   </div>
                   <form class="user" action="" method="post">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" name="pseudo" placeholder="Login">
+                      <input type="text" class="form-control form-control-user" name="login" placeholder="Login">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" name="motdepasse" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" name="password" placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -93,10 +128,10 @@
                   </form>
                   <hr>
                   <div class="text-center">
-                    <a class="small" href="forgot-password.html">Mot de passe oublié ?</a>
+                    <a class="small" href="forgot-password.php">Mot de passe oublié ?</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="register.html">Créer un compte!</a>
+                    <a class="small" href="register.php">Créer un compte!</a>
                   </div>
                     <?php 
                     if ($message!=null) {
