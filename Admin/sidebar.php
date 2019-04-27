@@ -17,7 +17,7 @@
     <a class="nav-link" href="index.html">
     <?php
         // Check Active Session
-        if (isset($_SESSION['id']) AND $userInfo->id_users == $_SESSION['id'])
+        if (isset($_SESSION['id']) AND $userInfo->id_user == $_SESSION['id'])
         {
         ?>
             <a class="nav-link" href="index.php?id=<?php echo $_SESSION['id'];?>">
@@ -94,7 +94,7 @@
         <h6 class="collapse-header">Ecrans de Connexion:</h6>
         <?php
             // Selon l'utilisateur
-            if (isset($_SESSION['id']) AND $userInfo->id_users == $_SESSION['id'])
+            if (isset($_SESSION['id']) AND $userInfo->id_user == $_SESSION['id'])
             {
                
         ?>

@@ -1,11 +1,11 @@
 <?php
     // Selon l'utilisateur
-    if (isset($_SESSION['id']) AND $userInfo->id_users == $_SESSION['id'])
+    if (isset($_SESSION['id']) AND $userInfo->id_user == $_SESSION['id'])
     {
 ?>
 
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="<?php echo $profil; ?>">
+            <a class="dropdown-item" href=" ">
             <a class="dropdown-item" href="profil.php?id=<?php echo $_SESSION['id'];?>" >
             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
             Mon Profil

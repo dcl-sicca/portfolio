@@ -1,8 +1,8 @@
 <?php session_start(); ?>
-<?php include "pdo.php"; ?>
+<?php include "pdo-admin.php"; ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -66,11 +66,36 @@
                     <input type="password" class="form-control form-control-user" name="password2" placeholder="Répéter Mot de Passe">
                   </div>
                 </div>
+
+                <div class="row custom-control custom-radio custom-control-inline ">              
+                  <div class="col-auto col-sm mb-3 mr-4 mb-sm-0 ">
+                      <input type="radio" class="custom-control-input" id="customRadio" name="avatar" value="sicca" checked>
+                      <label class="custom-control-label" for="customRadio"><img class="avatar" src="../img/avatar/sicca.jpg" alt="Sicca"></label>
+                  </div> 
+                  <div class="col col-sm mb-3">
+                      <input type="radio" class="custom-control-input" id="customRadio2" name="avatar" value="empty">
+                      <label class="custom-control-label" for="customRadio2"><img class="avatar" src="../img/avatar/empty.jpg" alt="Empty"></label>
+                  </div>
+                </div>
+                <div class="row custom-control custom-radio custom-control-inline">  
+                  <div class="col-auto col-sm mb-3 mr-4 mb-sm-0">
+                      <input type="radio" class="custom-control-input" id="customRadio3" name="avatar" value="empty">
+                      <label class="custom-control-label" for="customRadio3"><img class="avatar" src="../img/avatar/empty.jpg" alt="Empty"></label>
+                  </div>
+                  <div class="col col-sm mb-3">
+                      <input type="radio" class="custom-control-input" id="customRadio4" name="avatar" value="empty">
+                      <label class="custom-control-label" for="customRadio4"><img class="avatar" src="../img/avatar/empty.jpg" alt="Empty"></label>
+                  </div>
+                </div>
+  
                 <input type="submit" class="btn btn-primary btn-user btn-block" name="formSubscriber" value="Valider">
-                
-                
               </form>
               <hr>
+              <?php
+               if ($message!=null) {
+                echo "<p>" . $message . "</p>"; 
+               }
+              ?>
               <div class="text-center">
                 <a class="small" href="forgot-password.php">Mot de passe perdu ?</a>
               </div>
@@ -88,14 +113,12 @@
                     $login = ($_POST['login']);
                     $pseudo = ($_POST['pseudo']);
                     $email = ($_POST['email']);
-                    // $password = ($_POST['password']);
-                    // $password = password_hash('$password',PASSWORD_DEFAULT);
                     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-                    $avatar = 'empty';
+                    $avatar = ($_POST['avatar']);
 
                     $reqInsert = $bdd->prepare('INSERT INTO users
-                    (firstname, name, login, pseudo, email, password, avatar, id_role_fk) 
-                    VALUES (:firstname, :name, :login, :pseudo, :email, :password, :avatar, :id_role_fk)');
+                    (user_firstname, user_name, user_login, user_pseudo, user_email, user_password, user_avatar, id_role) 
+                    VALUES (:firstname, :name, :login, :pseudo, :email, :password, :avatar, :id_role)');
 
                     $reqInsert->execute(array(
 
@@ -106,11 +129,15 @@
                         'email' => $email,
                         'password' => $password,
                         'avatar' => $avatar,
-                        'id_role_fk' => 2
+                        'id_role' => 1
                         ));
 
-                    echo 'Membre bien ajouté';
-
+                    $message='Membre bien ajouté';
+                    header("Location: login.php";
+                }
+                else
+                {
+                  $message='Erreurs';
                 }
                 ?>
               </div>

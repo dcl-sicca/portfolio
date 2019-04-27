@@ -1,11 +1,11 @@
 <?php session_start();
 
-include("pdo.php");
+include("pdo-admin.php");
 
 if (isset($_GET['id']))
 {
 $getId = intval($_GET['id']); // Convert the entry into a number
-$reqUser = $bdd->prepare("SELECT * FROM users WHERE id_users = ?");
+$reqUser = $bdd->prepare("SELECT * FROM users WHERE id_user = ?");
 $reqUser->execute(array($getId));
 $userInfo = $reqUser->fetch();
 }
@@ -15,9 +15,9 @@ $userInfo=0;
 }
 
 // If session id = id_users then the nickname is displayed
-if (isset($_SESSION['id']) AND $userInfo['id_users'] == $_SESSION['id'])
+if (isset($_SESSION['id']) AND $userInfo->id_user == $_SESSION['id'])
 {
-$pseudoUser = $userInfo['pseudo_users'];
+$pseudoUser = $userInfo->user_pseudo;
 }
 else 
 {
@@ -80,8 +80,8 @@ $pseudoUser = 'Inconnu';
                     // On récupère le membre
                     $reqStatut = $bdd->prepare ('SELECT * 
                     FROM users,role
-                    WHERE id_role_fk = id_role
-                    AND id_users = ?');
+                    WHERE users.id_role = role.id_role
+                    AND id_user = ?');
 
                     $userStatut = null;
 
@@ -94,26 +94,26 @@ $pseudoUser = 'Inconnu';
 
                     ?>
                     <?php
-                        if (isset($_SESSION['id']) AND $userInfo['id_users'] == $_SESSION['id'])
+                        if (isset($_SESSION['id']) AND $userInfo->id_user == $_SESSION['id'])
                         {
 
                                 ?>
                                 <!-- Profil -->
                                 <div class="card shadow mb-4">
                                     <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary"><?php echo $userStatut['pseudo_users']; ?></h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"><?php echo $userStatut->user_pseudo; ?></h6>
                                     </div>
                                     <div class="card-body">
                                     <p>
                                 <div>
-                                <img src="../img/avatar/<?php echo $userStatut['avatar_users']; ?>.jpg" alt="">
+                                <img src="../img/avatar/<?php echo $userStatut->user_avatar; ?>.jpg" alt="">
 
                                 <p class="lead text-muted">
-                                <b>Login : </b><?php echo $userStatut['login_users']; ?><br>
-                                <b>Pseudo : </b><?php echo $userStatut['pseudo_users']; ?><br>
-                                <b>Nom : </b><?php echo $userStatut['name_users']; ?><br>
-                                <b>Email : </b><?php echo $userStatut['email_users']; ?><br>
-                                <b>Rôle : </b><?php echo $userStatut['name_role']; ?><br>
+                                <b>Login : </b><?php echo $userStatut->user_login; ?><br>
+                                <b>Pseudo : </b><?php echo $userStatut->user_pseudo; ?><br>
+                                <b>Nom : </b><?php echo $userStatut->user_name; ?><br>
+                                <b>Email : </b><?php echo $userStatut->user_email; ?><br>
+                                <b>Rôle : </b><?php echo $userStatut->role_name; ?><br>
                                 </p>
                                 <p>
                                     <a href="modif-profil.php?id=<?php echo $_SESSION['id'];?>" class="btn btn-primary my-2">Modifier votre profil</a>
@@ -191,13 +191,6 @@ $pseudoUser = 'Inconnu';
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
-
-  <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

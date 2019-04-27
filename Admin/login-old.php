@@ -1,7 +1,37 @@
-<?php include "pdo-admin.php"; ?>
+<?php include "pdo.php"; ?>
 
 <?php
   $message = null;
+  
+  // check form
+
+  // if (isset($_POST['formConnexion']))
+  // {
+  //     $login = htmlspecialchars($_POST['login']);
+  //     $password = ($_POST['password']);
+  
+  //     if (!empty($login) && !empty($password))
+  //     {
+  //         $reqUser = $bdd->prepare("SELECT * FROM users WHERE login = ? AND password = ?");
+  //         $reqUser->execute(array($login, $password));
+  //         $userExist = $reqUser->rowCount();
+  
+  //         if ($userExist === 1)
+  //         {
+  //             $userInfo = $reqUser->fetch();
+  //             $_SESSION['id'] = $userInfo['id_users'];
+  //             $_SESSION['pseudo'] = $userInfo['login'];
+  //             $_SESSION['pseudo'] = $userInfo['pseudo'];
+  //             $_SESSION['avatar'] = $userInfo['avatar'];
+  //             $_SESSION['password'] =$userInfo['password'];
+  //             header("Location: index.php?id=" . $_SESSION['id']);
+  //         }
+  //         else
+  //         {
+  //             $message = "Vos identifiants sont incorrects !";
+  //         }
+  //     }
+  // }
 
 if (isset($_POST['formConnexion'])) {
 
@@ -9,20 +39,26 @@ if (isset($_POST['formConnexion'])) {
   {
     $login = $_POST['login'];
     $password = $_POST['password'];
-    $sql = "SELECT * FROM users WHERE user_login = :login";
+    $sql = "SELECT * FROM users WHERE login = :login";
     $stmt = $bdd->prepare($sql);
     $stmt->bindParam(':login', $login);
     $stmt->execute();
     $result = $stmt->fetch();
-    var_dump($login);
+    // $isValid = password_verify($password, $result[0]);
 
-      if (password_verify($password, $result->user_password))
+    // $isValid = password_verify ($password, $result->password);
+    // var_dump($isValid);
+
+    //   if ($isValid)
+
+      if (password_verify($password, $result->password))
       {
           session_start();
-          $_SESSION['id'] = $result->id_user;
-          $_SESSION['login'] = $result->user_login;
-          $_SESSION['avatar'] = $result->user_avatar;
+          $_SESSION['id'] = $result->id_users;
+          $_SESSION['login'] = $result->login;
+          $_SESSION['avatar'] = $result->avatar;
 
+          // $_SESSION['avatar'] = $userInfo['avatar_users'];
           header("Location: index.php?id=" . $_SESSION['id']);
       }
       else

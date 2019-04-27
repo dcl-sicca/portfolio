@@ -62,35 +62,29 @@ $req -> execute();
 // Each input is displayed one by one
 while ($row = $req->fetch())
 {
-    $chaineTechno = '';
-    $idcredentials = $row['id_credentials'];
-    $name = $row['name_credentials'];
-    $year = $row['year_credentials'];
-    $description = $row['description_credentials'];
-    $url = $row['url_credentials'];
-    $txturl = $row['txturl_credentials'];
-    $snap = $row['snap_credentials'];
-    $users = $row['pseudo_users'];
-    $dataposition = $row['dataposition_credentials'];
-
+    $techChainImg = '';
+    $techChain = '';
     $req2 = $bdd->prepare("SELECT * FROM have
             INNER JOIN technology ON have.id_technology = technology.id_technology
             WHERE have.id_credentials = :idcredentials");
             $req2->execute(array(
-                'idcredentials' => $idcredentials
+                'idcredentials' => $row->id_credentials
             ));
     // Each technology is displayed one by one
     while ($row2 = $req2->fetch()){
-        $chaineTechno = '<img class="logos" src="img/logos/'.$row2['technology_technology'].'.png"> '.$chaineTechno;
+        $techChain = $row2->technology_name.' '.$techChain;
+        $techChainImg = '<img class="logos" src="img/logos/'.$row2->technology_img.'.png"> '.$techChainImg;
     }
+    // Complete the processing of the request 2
+    $req2->closeCursor();
     ?>
 
-    <tr class="item" data-an="<?php echo $year; ?>" data-techno="PHP" data-position="<?php echo $dataposition; ?>">
-        <th scope="row"><?php echo $year; ?></th>
-        <td><img class="snapEcran thumbnail zoom" src="data:image/jpg;base64,<?php echo $snap; ?>" alt="<?php echo $name; ?>"></td>
-        <td style="text-align: center;"><?php echo $chaineTechno ;?></td>
-        <td><?php echo $description; ?></td>
-        <td><a href="<?php echo $url; ?>" target="blank"><i class="fas fa-external-link-alt"></i> <?php echo $txturl; ?></a></td>
+    <tr class="item" data-an="<?php echo $row->credentials_year; ?>" data-techno="<?php echo $techChain; ?>" data-position="<?php echo $row->credentials_position; ?>">
+        <th scope="row"><?php echo $row->credentials_year; ?></th>
+        <td><img class="snapEcran thumbnail zoom" src="data:image/jpg;base64,<?php echo $row->credentials_snap; ?>" alt="<?php echo $row->credentials_name; ?>"></td>
+        <td style="text-align: center;"><?php echo $techChainImg ;?></td>
+        <td><?php echo $row->credentials_description; ?></td>
+        <td><a href="<?php echo $row->credentials_url; ?>" target="blank"><i class="fas fa-external-link-alt"></i> <?php echo $row->credentials_urltxt; ?></a></td>
     </tr>
 
     <?php

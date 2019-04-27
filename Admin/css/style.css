@@ -15,3 +15,10 @@
     background-position: center;
     background-size: cover;
 }
+
+.avatar {
+	width: 80px;
+	height: auto;
+	border: 2px solid purple;
+    border-radius: 1em;
+}
