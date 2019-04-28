@@ -17,6 +17,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
 </head>
 
@@ -54,54 +55,49 @@
          ?> 
 
                <form class="user" action="" method="post">
+
+
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" name="firstname" placeholder="Nom Référence">
+                    <input type="text" class="form-control form-control-user" name="name" placeholder="Nom Référence">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" name="name" placeholder="Nom">
+                      <input class="form-control form-control-user" type="date" name="date" value="2019-01-01">
                   </div>
                 </div>
+                
                 <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" name="login" placeholder="Login">
-                </div>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" name="pseudo" placeholder="Pseudo">
-                </div>
-                </div>
-                <div class="form-group">
-                  <input type="email" class="form-control form-control-user" name="email" placeholder="Email">
-                </div>
-                <div class="form-group row">
-                  <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" name="password" placeholder="Mot de Passe">
-                  </div>
-                  <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" name="password2" placeholder="Répéter Mot de Passe">
-                  </div>
+                    <select class="form-control form-control-user" name="position" placeholder="Position">
+                      <option value="">Position</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
                 </div>
 
-                <div class="row custom-control custom-radio custom-control-inline ">              
-                  <div class="col-auto col-sm mb-3 mr-4 mb-sm-0 ">
-                      <input type="radio" class="custom-control-input" id="customRadio" name="avatar" value="sicca" checked>
-                      <label class="custom-control-label" for="customRadio"><img class="avatar" src="../img/avatar/sicca.jpg" alt="Sicca"></label>
-                  </div> 
-                  <div class="col col-sm mb-3">
-                      <input type="radio" class="custom-control-input" id="customRadio2" name="avatar" value="sicca-contributor">
-                      <label class="custom-control-label" for="customRadio2"><img class="avatar" src="../img/avatar/sicca-contributor.jpg" alt="Empty"></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" name="snap" placeholder="Capture écran">
+                </div>
+                </div>
+
+                
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="password" class="form-control form-control-user" name="password" placeholder="Url">
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control form-control-user" name="password2" placeholder="Texte Url">
                   </div>
                 </div>
-                <div class="row custom-control custom-radio custom-control-inline">  
-                  <div class="col-auto col-sm mb-3 mr-4 mb-sm-0">
-                      <input type="radio" class="custom-control-input" id="customRadio3" name="avatar" value="sicca-corrector">
-                      <label class="custom-control-label" for="customRadio3"><img class="avatar" src="../img/avatar/sicca-corrector.jpg" alt="Empty"></label>
-                  </div>
-                  <div class="col col-sm mb-3">
-                      <input type="radio" class="custom-control-input" id="customRadio4" name="avatar" value="empty">
-                      <label class="custom-control-label" for="customRadio4"><img class="avatar" src="../img/avatar/empty.jpg" alt="Empty"></label>
-                  </div>
+                <div class="form-group">
+                  <input type="text-area" class="form-control form-control-user" name="email" placeholder="Description">
                 </div>
+
+                
+                
+                
   
                 <input type="submit" class="btn btn-primary btn-user btn-block" name="formSubscriber" value="Valider">
                </form>

@@ -17,6 +17,7 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -122,7 +123,16 @@
                       ?>
                       <td><?php echo ($description); ?></td>
                       <td><?php echo $row->credentials_urltxt; ?></td>
-                      <td><a href="updateReference.php?id=<?php echo $_SESSION['id'];?>&id_credentials=<?php echo $row->id_credentials?>">Modifier</a></td>
+                      <td>
+                          <a href=""updateReference.php?id=<?php echo $_SESSION['id'];?>&id_credentials=<?php echo $row->id_credentials?> class="btn btn-info btn-icon-split btn-sm">
+                            <span class="icon text-white-50">
+                              <i class="fas fa-pen-nib"></i>
+                            </span>
+                            <span class="text">Modifier</span>
+                          </a>  
+                      </td>
+
+                      
                     </tr>
                     <?php
                   }
