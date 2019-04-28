@@ -1,63 +1,3 @@
-<?php include 'pdo-admin.php';?>
-<?php
-// check form
-if (isset($_POST['formSubscriber']))
-{
-    $message=null;  
-    $firstname = ($_POST['firstname']);
-    $name = ($_POST['name']);
-    $login = ($_POST['login']);
-    $pseudo = ($_POST['pseudo']);
-    $email = ($_POST['email']);
-    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $avatar = ($_POST['avatar']);
-
-    $reqInsert = $bdd->prepare('INSERT INTO users
-    (user_firstname, user_name, user_login, user_pseudo, user_email, user_password, user_avatar, id_role) 
-    VALUES (:firstname, :name, :login, :pseudo, :email, :password, :avatar, :id_role)');
-
-    $reqInsert->execute(array(
-
-        'firstname' => $firstname,
-        'name' => $name,    
-        'login' => $login,
-        'pseudo' => $pseudo,
-        'email' => $email,
-        'password' => $password,
-        'avatar' => $avatar,
-        'id_role' => 1
-        ));
-
-          if (!empty($_POST['login']) && !empty($_POST['password']))
-          {
-            $login = $_POST['login'];
-            $password = $_POST['password'];
-            $sql = "SELECT * FROM users WHERE user_login = :login";
-            $stmt = $bdd->prepare($sql);
-            $stmt->bindParam(':login', $login);
-            $stmt->execute();
-            $result = $stmt->fetch();
-        
-              if (password_verify($password, $result->user_password))
-              {
-                  session_start();
-                  $_SESSION['id'] = $result->id_user;
-                  $_SESSION['login'] = $result->user_login;
-                  $_SESSION['avatar'] = $result->user_avatar;
-        
-                  header("Location: index.php?id=" . $_SESSION['id']);
-              }
-              else
-              {
-                  $message = "Mail erroné !";
-              }
-          }
-}
-else
-{
-  $message='Erreurs';
-}
-?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -69,7 +9,7 @@ else
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Register</title>
+  <title>SB Admin 2 - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -77,27 +17,46 @@ else
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
 
 </head>
 
-<body class="bg-gradient-primary">
-  <div class="container">
+<body id="page-top">
 
-    <div class="card o-hidden border-0 shadow-lg my-5">
-      <div class="card-body p-0">
-        <!-- Nested Row within Card Body -->
-        <div class="row">
-          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-          <div class="col-lg-7">
-            <div class="p-5">
-              <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Inscription</h1>
-              </div>
-              <form class="user" action="" method="post">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <?php include 'sidebar.php';?>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <?php include 'topbar.php'; ?>
+        <!-- End of Topbar -->
+
+
+
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Ajouter une référence</h1>
+
+         <?php
+         if (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) !== '1')
+         {
+         ?> 
+
+               <form class="user" action="" method="post">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" name="firstname" placeholder="Prénom">
+                    <input type="text" class="form-control form-control-user" name="firstname" placeholder="Nom Référence">
                   </div>
                   <div class="col-sm-6">
                     <input type="text" class="form-control form-control-user" name="name" placeholder="Nom">
@@ -145,27 +104,63 @@ else
                 </div>
   
                 <input type="submit" class="btn btn-primary btn-user btn-block" name="formSubscriber" value="Valider">
-              </form>
-              <?php
-                if ($message!=null) {
-                echo "<p>" . $message . "</p>"; 
-                }
-              ?>
-              <hr>
-                <div class="text-center">
-                  <a class="small" href="forgot-password.php">Mot de passe perdu ?</a>
-                </div>
-                <div class="text-center">
-                  <a class="small" href="login.php">Vous avez déjà un compte ? Connectez-vous !</a>
-              
-              </div>
-            </div>
+               </form>
+
+         <?php
+         }
+         elseif (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) == '1')
+         {
+         ?>
+         Bienvenue Abonné !
+
+         <?php
+         }
+         elseif (isset($_SESSION['id']) AND $userInfo->id_user != $_SESSION['id'])
+         {
+         ?>
+         Petit Malin !
+         <?php
+         }
+         else 
+         {
+         ?>        
+         Vous êtes deconnecté !
+         <?php           
+         }
+         ?>  
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->  
+        
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Sicca-Area 2019</span>
           </div>
         </div>
-      </div>
+      </footer>
+      <!-- End of Footer -->
+
     </div>
+    <!-- End of Content Wrapper -->
 
   </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <?php include "logout-modal.php"; ?>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

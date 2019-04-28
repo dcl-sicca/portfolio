@@ -96,11 +96,11 @@
     <span>Charts</span></a>
 </li>
 
-<!-- Nav Item - Tables -->
+<!-- Nav Item - References -->
 <li class="nav-item">
-    <a class="nav-link" href="tables.html">
+    <a class="nav-link" href="reference.php?id=<?php echo $_SESSION['id'];?>">
     <i class="fas fa-fw fa-table"></i>
-    <span>Tables</span></a>
+    <span>Références</span></a>
 </li>
 
 <!-- Divider -->

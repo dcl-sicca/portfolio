@@ -19,7 +19,7 @@ if (isset($_GET['id']))
       $reqUser->bindParam(':getId', $getId);
       $reqUser->execute();
       $userInfo = $reqUser->fetch();
-      include 'index-admin.php';
+      include 'reference-admin.php';
       }
       else
       {
