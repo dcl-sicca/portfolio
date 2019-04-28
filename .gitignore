@@ -1,0 +1,5 @@
+**/pdo.JSON
+*.JSON*.json
+**/node_modules
+pdo.JSON
+pdo-admin.JSON

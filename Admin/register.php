@@ -1,6 +1,63 @@
-<?php session_start(); ?>
-<?php include "pdo-admin.php"; ?>
+<?php include 'pdo-admin.php';?>
+<?php
+// check form
+if (isset($_POST['formSubscriber']))
+{
+    $message=null;  
+    $firstname = ($_POST['firstname']);
+    $name = ($_POST['name']);
+    $login = ($_POST['login']);
+    $pseudo = ($_POST['pseudo']);
+    $email = ($_POST['email']);
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $avatar = ($_POST['avatar']);
 
+    $reqInsert = $bdd->prepare('INSERT INTO users
+    (user_firstname, user_name, user_login, user_pseudo, user_email, user_password, user_avatar, id_role) 
+    VALUES (:firstname, :name, :login, :pseudo, :email, :password, :avatar, :id_role)');
+
+    $reqInsert->execute(array(
+
+        'firstname' => $firstname,
+        'name' => $name,    
+        'login' => $login,
+        'pseudo' => $pseudo,
+        'email' => $email,
+        'password' => $password,
+        'avatar' => $avatar,
+        'id_role' => 1
+        ));
+
+          if (!empty($_POST['login']) && !empty($_POST['password']))
+          {
+            $login = $_POST['login'];
+            $password = $_POST['password'];
+            $sql = "SELECT * FROM users WHERE user_login = :login";
+            $stmt = $bdd->prepare($sql);
+            $stmt->bindParam(':login', $login);
+            $stmt->execute();
+            $result = $stmt->fetch();
+        
+              if (password_verify($password, $result->user_password))
+              {
+                  session_start();
+                  $_SESSION['id'] = $result->id_user;
+                  $_SESSION['login'] = $result->user_login;
+                  $_SESSION['avatar'] = $result->user_avatar;
+        
+                  header("Location: index.php?id=" . $_SESSION['id']);
+              }
+              else
+              {
+                  $message = "Mail erroné !";
+              }
+          }
+}
+else
+{
+  $message='Erreurs';
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -25,7 +82,6 @@
 </head>
 
 <body class="bg-gradient-primary">
-
   <div class="container">
 
     <div class="card o-hidden border-0 shadow-lg my-5">
@@ -90,56 +146,18 @@
   
                 <input type="submit" class="btn btn-primary btn-user btn-block" name="formSubscriber" value="Valider">
               </form>
-              <hr>
               <?php
-               if ($message!=null) {
+                if ($message!=null) {
                 echo "<p>" . $message . "</p>"; 
-               }
+                }
               ?>
-              <div class="text-center">
-                <a class="small" href="forgot-password.php">Mot de passe perdu ?</a>
-              </div>
-              <div class="text-center">
-                <a class="small" href="login.php">Vous avez déjà un compte ? Connectez-vous !</a>
-
-                <?php
-                $message = null;
-  
-                // check form
-                if (isset($_POST['formSubscriber']))
-                {
-                    $firstname = ($_POST['firstname']);
-                    $name = ($_POST['name']);
-                    $login = ($_POST['login']);
-                    $pseudo = ($_POST['pseudo']);
-                    $email = ($_POST['email']);
-                    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-                    $avatar = ($_POST['avatar']);
-
-                    $reqInsert = $bdd->prepare('INSERT INTO users
-                    (user_firstname, user_name, user_login, user_pseudo, user_email, user_password, user_avatar, id_role) 
-                    VALUES (:firstname, :name, :login, :pseudo, :email, :password, :avatar, :id_role)');
-
-                    $reqInsert->execute(array(
-
-                        'firstname' => $firstname,
-                        'name' => $name,    
-                        'login' => $login,
-                        'pseudo' => $pseudo,
-                        'email' => $email,
-                        'password' => $password,
-                        'avatar' => $avatar,
-                        'id_role' => 1
-                        ));
-
-                    $message='Membre bien ajouté';
-                    header("Location: login.php";
-                }
-                else
-                {
-                  $message='Erreurs';
-                }
-                ?>
+              <hr>
+                <div class="text-center">
+                  <a class="small" href="forgot-password.php">Mot de passe perdu ?</a>
+                </div>
+                <div class="text-center">
+                  <a class="small" href="login.php">Vous avez déjà un compte ? Connectez-vous !</a>
+              
               </div>
             </div>
           </div>

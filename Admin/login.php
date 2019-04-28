@@ -1,20 +1,20 @@
 <?php include "pdo-admin.php"; ?>
-
 <?php
-  $message = null;
+$message = null;
 
 if (isset($_POST['formConnexion'])) {
 
   if (!empty($_POST['login']) && !empty($_POST['password']))
   {
+    // Vérifier si le login existe
+  
     $login = $_POST['login'];
     $password = $_POST['password'];
-    $sql = "SELECT * FROM users WHERE user_login = :login";
+    $sql = "SELECT * FROM users NATURAL JOIN role WHERE user_login = :login";
     $stmt = $bdd->prepare($sql);
     $stmt->bindParam(':login', $login);
     $stmt->execute();
     $result = $stmt->fetch();
-    var_dump($login);
 
       if (password_verify($password, $result->user_password))
       {
@@ -22,6 +22,9 @@ if (isset($_POST['formConnexion'])) {
           $_SESSION['id'] = $result->id_user;
           $_SESSION['login'] = $result->user_login;
           $_SESSION['avatar'] = $result->user_avatar;
+          $_SESSION['pseudo'] = $result->user_pseudo;
+          $_SESSION['role_name'] = $result->role_name;
+          $_SESSION['role_status'] = $result->role_status;
 
           header("Location: index.php?id=" . $_SESSION['id']);
       }
@@ -31,7 +34,6 @@ if (isset($_POST['formConnexion'])) {
       }
   }
 }
-  
 ?>
 <!DOCTYPE html>
 <html lang="fr">
