@@ -5,6 +5,7 @@ if (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'])
     if ($_SESSION['role_status'] == 4)
     {
         include 'sidebar-admin.php';
+
     }
     else if ($_SESSION['role_status'] == 2)
     {

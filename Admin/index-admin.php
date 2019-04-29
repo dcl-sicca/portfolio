@@ -247,26 +247,13 @@
                 </div>
             </div>
             <?php
-            }
-            elseif (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) == '1')
-            {
+              }
+              else 
+              {
             ?>
-            Bienvenue Abonné !
+              Petit Malin !
             <?php
-            }
-            elseif (isset($_SESSION['id']) AND $userInfo->id_user != $_SESSION['id'])
-            {
-            ?>
-            Petit Malin !
-            <?php
-            }
-            else 
-            {
-            ?>        
-            Vous êtes deconnecté !
-
-            <?php           
-            }
+              }
             ?>  
         </div>
         <!-- /.container-fluid -->
