@@ -27,7 +27,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <?php include 'sidebar.php';?>
+    <?php require_once 'sidebar.php';?>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -37,7 +37,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        <?php include 'topbar.php'; ?>
+        <?php require_once 'topbar.php'; ?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -248,6 +248,12 @@
             </div>
             <?php
               }
+              elseif (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) == '1')
+              {
+            ?>
+              Bienvenue Abonné !
+            <?php
+              }
               else 
               {
             ?>
@@ -283,7 +289,7 @@
   </a>
 
   <!-- Logout Modal-->
-  <?php include "logout-modal.php"; ?>
+  <?php require_once "logout-modal.php"; ?>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

@@ -28,7 +28,7 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-<?php include ("sidebar.php") ?>
+<?php require_once ("sidebar.php") ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -37,7 +37,7 @@
       <div id="content">
 
           <!-- Topbar -->
-          <?php include("topbar.php"); ?>
+          <?php require_once 'topbar.php'; ?>
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
@@ -138,7 +138,7 @@
   </a>
 
   <!-- Logout Modal-->
-  <?php include("logout-modal.php");?>
+  <?php require_once 'logout-modal.php';?>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

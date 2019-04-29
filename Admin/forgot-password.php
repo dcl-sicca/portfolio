@@ -1,6 +1,6 @@
 <?php session_start();
 
-include("pdo.php");
+require 'pdo-admin.php';
 $pseudo = "- - -";
 
 if (isset($_GET['id']))

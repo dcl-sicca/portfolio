@@ -1,6 +1,6 @@
 <?php session_start();
 
-include("pdo-admin.php");
+require 'pdo-admin.php';
 
 $reqNbUser = $bdd->prepare("SELECT COUNT(DISTINCT id_user) AS NbUsers FROM users");
 $reqNbUser->execute();
@@ -19,7 +19,7 @@ if (isset($_GET['id']))
       $reqUser->bindParam(':getId', $getId);
       $reqUser->execute();
       $userInfo = $reqUser->fetch();
-      include 'updateReference-admin.php';
+      require_once 'updateReference-admin.php';
       }
       else
       {

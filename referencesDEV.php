@@ -56,43 +56,43 @@
     </thead>
     <tbody class="card-container">
     <?php
-// // bdd preparation of the request references
-$req = $bdd->prepare('SELECT * FROM credentials NATURAL JOIN users');
-$req -> execute();
-// Each input is displayed one by one
-while ($row = $req->fetch())
-{
-    $techChainImg = '';
-    $techChain = '';
-    $req2 = $bdd->prepare("SELECT * FROM have
-            INNER JOIN technology ON have.id_technology = technology.id_technology
-            WHERE have.id_credentials = :idcredentials");
-            $req2->execute(array(
-                'idcredentials' => $row->id_credentials
-            ));
-    // Each technology is displayed one by one
-    while ($row2 = $req2->fetch()){
-        $techChain = $row2->technology_name.' '.$techChain;
-        $techChainImg = '<img class="logos" src="img/logos/'.$row2->technology_img.'.png"> '.$techChainImg;
+    // // bdd preparation of the request references
+    $req = $bdd->prepare('SELECT * FROM credentials NATURAL JOIN users');
+    $req -> execute();
+    // Each input is displayed one by one
+    while ($row = $req->fetch())
+    {
+        $techChainImg = '';
+        $techChain = '';
+        $req2 = $bdd->prepare("SELECT * FROM have
+                INNER JOIN technology ON have.id_technology = technology.id_technology
+                WHERE have.id_credentials = :idcredentials");
+                $req2->execute(array(
+                    'idcredentials' => $row->id_credentials
+                ));
+        // Each technology is displayed one by one
+        while ($row2 = $req2->fetch()){
+            $techChain = $row2->technology_name.' '.$techChain;
+            $techChainImg = '<img class="logos" src="img/logos/'.$row2->technology_img.'.png"> '.$techChainImg;
+        }
+        // Complete the processing of the request 2
+        $req2->closeCursor();
+        ?>
+
+        <tr class="item" data-an="<?php echo $row->credentials_year; ?>" data-techno="<?php echo $techChain; ?>" data-position="<?php echo $row->credentials_position; ?>">
+            <th scope="row"><?php echo $row->credentials_year; ?></th>
+            <td><img class="snapEcran thumbnail zoom" src="data:image/jpg;base64,<?php echo $row->credentials_snap; ?>" alt="<?php echo $row->credentials_name; ?>"></td>
+            <td style="text-align: center;"><?php echo $techChainImg ;?></td>
+            <td><?php echo $row->credentials_description; ?></td>
+            <td><a href="<?php echo $row->credentials_url; ?>" target="blank"><i class="fas fa-external-link-alt"></i> <?php echo $row->credentials_urltxt; ?></a></td>
+        </tr>
+
+        <?php
     }
-    // Complete the processing of the request 2
-    $req2->closeCursor();
-    ?>
 
-    <tr class="item" data-an="<?php echo $row->credentials_year; ?>" data-techno="<?php echo $techChain; ?>" data-position="<?php echo $row->credentials_position; ?>">
-        <th scope="row"><?php echo $row->credentials_year; ?></th>
-        <td><img class="snapEcran thumbnail zoom" src="data:image/jpg;base64,<?php echo $row->credentials_snap; ?>" alt="<?php echo $row->credentials_name; ?>"></td>
-        <td style="text-align: center;"><?php echo $techChainImg ;?></td>
-        <td><?php echo $row->credentials_description; ?></td>
-        <td><a href="<?php echo $row->credentials_url; ?>" target="blank"><i class="fas fa-external-link-alt"></i> <?php echo $row->credentials_urltxt; ?></a></td>
-    </tr>
-
-    <?php
-}
-
-// Complete the processing of the request
-$req->closeCursor();
-?>
+        // Complete the processing of the request
+        $req->closeCursor();
+        ?>
 
     </tbody>
   </table>

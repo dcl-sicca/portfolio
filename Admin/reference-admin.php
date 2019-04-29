@@ -30,7 +30,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <?php include 'sidebar.php';?>
+    <?php require_once 'sidebar.php';?>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -40,7 +40,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        <?php include 'topbar.php'; ?>
+        <?php require_once 'topbar.php'; ?>
         <!-- End of Topbar -->
 
         <?php if (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) !== '1') 
@@ -124,11 +124,11 @@
                       <td><?php echo ($description); ?></td>
                       <td><?php echo $row->credentials_urltxt; ?></td>
                       <td>
-                          <a href=""updateReference.php?id=<?php echo $_SESSION['id'];?>&id_credentials=<?php echo $row->id_credentials?> class="btn btn-info btn-icon-split btn-sm">
-                            <span class="icon text-white-50">
-                              <i class="fas fa-pen-nib"></i>
+                          <a href="updateReference.php?id=<?php echo $_SESSION['id'];?>&id_credentials=<?php echo $row->id_credentials?>" class='btn btn-info btn-icon-split btn-sm'>
+                            <span class='icon text-white-50'>
+                              <i class='fas fa-pen-nib'></i>
                             </span>
-                            <span class="text">Modifier</span>
+                            <span class='text'>Modifier</span>
                           </a>  
                       </td>
 
@@ -175,23 +175,7 @@
   </a>
 
   <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <?php require_once "logout-modal.php"; ?>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

@@ -39,7 +39,7 @@
 
     </a>
     <!-- Dropdown - User Information -->
-    <?php include 'dropdown-user-info.php';?>
+    <?php require_once 'dropdown-user-info.php';?>
     </li>
 
 </ul>

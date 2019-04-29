@@ -1,11 +1,9 @@
 <?php session_start();
-
-include("pdo-admin.php");
+require 'pdo-admin.php';
 
 $reqNbUser = $bdd->prepare("SELECT COUNT(DISTINCT id_user) AS NbUsers FROM users");
 $reqNbUser->execute();
 $Nb = $reqNbUser->fetch();
-
 
 if (isset($_GET['id'])) 
 {
@@ -19,7 +17,7 @@ if (isset($_GET['id']))
       $reqUser->bindParam(':getId', $getId);
       $reqUser->execute();
       $userInfo = $reqUser->fetch();
-      include 'index-admin.php';
+      require_once 'index-admin.php';
       }
       else
       {
@@ -30,7 +28,6 @@ else
 {
   header("Location: login.php");
 }
-
 ?>
 
 

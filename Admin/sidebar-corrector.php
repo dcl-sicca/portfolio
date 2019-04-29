@@ -65,16 +65,14 @@
                 <a class="collapse-item" href="profil.php?id=<?php echo $_SESSION['id'];?>">Mon Profil</a>
                 <a class="collapse-item" href="forgot-password.php?id=<?php echo $_SESSION['id'];?>">Rénitialiser Mot de Passe</a>
                 <a class="collapse-item" href="logout.php">Déconnexion</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Références:</h6>
-                <a class="collapse-item" href="updateReference.php?id=<?php echo $_SESSION['id'];?>">Modifier Référence</a>
+                
     </div>
     </div>
 </li>
 
 <!-- Nav Item - References -->
 <li class="nav-item">
-    <a class="nav-link" href="references.php">
+    <a class="nav-link" href="reference.php?id=<?php echo $_SESSION['id'];?>">
     <i class="fas fa-fw fa-table"></i>
     <span>Réferences</span></a>
 </li>

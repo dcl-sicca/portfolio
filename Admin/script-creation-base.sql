@@ -62,7 +62,7 @@ CREATE TABLE credentials(
         credentials_snap        Longblob ,
         credentials_description Longtext ,
         credentials_url         Varchar (60) ,
-        credentials_urltext     Varchar (60) ,
+        credentials_urltxt      Varchar (60) ,
         credentials_registered  Datetime NOT NULL ,
         credentials_position    Int NOT NULL ,
         id_user                 Int NOT NULL

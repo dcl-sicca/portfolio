@@ -1,4 +1,4 @@
-<?php include 'pdo-admin.php';?>
+<?php require 'pdo-admin.php';?>
 <?php
 // check form
 if (isset($_POST['formSubscriber']))
