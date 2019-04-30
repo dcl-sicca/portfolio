@@ -118,7 +118,6 @@
                         $message = htmlentities($_POST['message']);
 
                         // Variables concernant l'email
-                        
                         $mail = new PHPMailer();
                         $mail->Host = 'smtp.laposte.net';
                         $mail->SMTPAuth   = true;
@@ -128,15 +127,14 @@
                         $mail->Username = "sicca";
                         $mail->Password = "Am35sicc@25$$";
 
-                            // Expéditeur
+                        // Expéditeur
                         $mail->SetFrom('sicca@laposte.net', $prenom.' '. $nom);
                         // Destinataire
-                        $mail->AddAddress('laurent.juy@gmail.com', 'JUY Laurent');
+                        $mail->AddAddress('sicca@sicca-area.com', 'JUY Laurent');
                         // Objet
                         $mail->Subject = $objet;
 
                         // Votre message
-
                         $bodyMessage='<p>Bonjour, vous avez reçu un message à partir de votre site web Sicca-area.</p>';
                         $bodyMessage .='<p>Nom : '.$prenom.' '.$nom.'</p></br>';
                         $bodyMessage .='<p>'.$postal.' '.$ville.'</p></br>';
@@ -146,18 +144,12 @@
 
                         $mail->MsgHTML($bodyMessage);
 
-                        
-
-                        
-
                         // Modifier l'encodage du mail
                         $mail->CharSet = "utf-8";
 
                         // Modifier l'adresse de réponse
                         $mail->AddReplyTo($email, $prenom.' '. $nom);
 
-                        
-                            
                         if( PhpCaptcha::Validate($_POST['capa'], true) ){
                             //true
                            
@@ -172,8 +164,6 @@
                         else {
                             echo 'Erreur Captcha !';
                         }     
-
-                        
                     }
                 ?>
 </div>

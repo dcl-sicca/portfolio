@@ -1,6 +1,6 @@
 <?php session_start();
 
-require 'pdo-admin.php';
+require 'model/pdo-admin.php';
 
 $reqNbUser = $bdd->prepare("SELECT COUNT(DISTINCT id_user) AS NbUsers FROM users");
 $reqNbUser->execute();

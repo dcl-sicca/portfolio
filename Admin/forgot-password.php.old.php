@@ -12,16 +12,17 @@ if (isset($_GET['id']))
   if ($getId <= $Nb)
   {
       include 'model/req-user-id.php';
-      require_once 'views/index.html.php';
+      require_once 'views/forgot-password.html.php';
       }
       else
       {
-      header("Location: login.php");
+      // header("Location: login.php");
   }
 }
 else
 {
-  header("Location: login.php");
+  // header("Location: login.php");
 }
+?>
 
 
