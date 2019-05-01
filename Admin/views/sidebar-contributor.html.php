@@ -67,7 +67,7 @@
                 <a class="collapse-item" href="logout.php">Déconnexion</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Références:</h6>
-                <a class="collapse-item" href="addReference.php?id=<?php echo $_SESSION['id'];?>">ajouter Référence</a>
+                <a class="collapse-item" href="addCredential.php?id=<?php echo $_SESSION['id'];?>">ajouter Référence</a>
     </div>
     </div>
 </li>

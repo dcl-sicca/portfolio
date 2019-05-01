@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>Update Credential</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -37,63 +37,20 @@
       <div id="content">
 
         <!-- Topbar -->
-        <?php require_once 'topbar.php'; ?>
+        <?php require_once 'views/topbar.html.php'; ?>
         <!-- End of Topbar -->
-
-
-
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-          <?php
-          if (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) !== '1')
-          {
-
-          $id_credentials=$_GET['id_credentials'];
-          ?>
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Modifier la réference n°<?php echo $id_credentials;?></h1>
           <?php
-              // bdd preparation of the request references
-              $req = $bdd->prepare('SELECT * FROM credentials NATURAL JOIN users');
+              include 'model/req-credential.php';
               $req -> execute();
           ?>
             
-
           Admin
-
-          <?php
-          }
-          elseif (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) == '1')
-          {
-          ?>
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Bienvenue</h1>
-
-          Bienvenue Abonné !
-
-          <?php
-          }
-          elseif (isset($_SESSION['id']) AND $userInfo->id_user != $_SESSION['id'])
-          {
-          ?>
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Bienvenue</h1>
-          Petit Malin !
-          <?php
-          }
-          else 
-          {
-          ?>
-          <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Bienvenue</h1>       
-          Vous êtes deconnecté !
-          <?php           
-          }
-          ?>  
-
-
 
         </div>
         <!-- /.container-fluid -->

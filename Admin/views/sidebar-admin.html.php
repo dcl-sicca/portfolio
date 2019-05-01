@@ -82,7 +82,7 @@
                 <a class="collapse-item" href="logout.php">Déconnexion</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Références:</h6>
-                <a class="collapse-item" href="addReference.php?id=<?php echo $_SESSION['id'];?>">Ajout Référence</a>
+                <a class="collapse-item" href="addCredential.php?id=<?php echo $_SESSION['id'];?>">Ajout Référence</a>
                 <a class="collapse-item" href="404.php">404 Page</a>
                 <a class="collapse-item" href="blank.php">Blank Page</a>
     </div>
@@ -91,14 +91,14 @@
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="charts.php">
+    <a class="nav-link" href="charts.php?id=<?php echo $_SESSION['id'];?>">
     <i class="fas fa-fw fa-chart-area"></i>
     <span>Charts</span></a>
 </li>
 
-<!-- Nav Item - References -->
+<!-- Nav Item - Credentials -->
 <li class="nav-item">
-    <a class="nav-link" href="reference.php?id=<?php echo $_SESSION['id'];?>">
+    <a class="nav-link" href="credential.php?id=<?php echo $_SESSION['id'];?>">
     <i class="fas fa-fw fa-table"></i>
     <span>Références</span></a>
 </li>

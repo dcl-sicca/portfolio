@@ -40,11 +40,10 @@
       <div id="content">
 
         <!-- Topbar -->
-        <?php require_once 'topbar.php'; ?>
+        <?php require_once 'views/topbar.html.php'; ?>
         <!-- End of Topbar -->
 
-        <?php if (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) !== '1') 
-        {?>
+        
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -83,14 +82,10 @@
                   <tbody>
                   <?php
                   // Cut a sentence without cutting a word
-                  function cutString($string, $start, $length, $endStr = '[&hellip]'){
-                    if( strlen( $string ) <= $length ) return $string;
-                    $str = mb_substr( $string, $start, $length - strlen( $endStr ) + 1, 'UTF-8');
-                    return substr( $str, 0, strrpos( $str,' ') ).$endStr;
-                  }
+                  include 'model/func-cutstring.php';
 
                   // bdd preparation of the request references
-                  $req = $bdd->prepare('SELECT * FROM credentials NATURAL JOIN users');
+                  include 'model/req-credential.php';
                   $req -> execute();
                   // Each input is displayed one by one
                   while ($row = $req->fetch())
@@ -98,9 +93,7 @@
                     $techChainImg = '';
                     $techChain = '';
 
-                    $req2 = $bdd->prepare("SELECT * FROM have
-                    INNER JOIN technology ON have.id_technology = technology.id_technology
-                    WHERE have.id_credentials = :idcredentials");
+                    include 'model/req-credential-technology.php';
                     $req2->execute(array('idcredentials' => $row->id_credentials));
 
                       // Each technology is displayed one by one
@@ -124,15 +117,13 @@
                       <td><?php echo ($description); ?></td>
                       <td><?php echo $row->credentials_urltxt; ?></td>
                       <td>
-                          <a href="updateReference.php?id=<?php echo $_SESSION['id'];?>&id_credentials=<?php echo $row->id_credentials?>" class='btn btn-info btn-icon-split btn-sm'>
+                          <a href="upCredential.php?id=<?php echo $_SESSION['id'];?>&id_credentials=<?php echo $row->id_credentials?>" class='btn btn-info btn-icon-split btn-sm'>
                             <span class='icon text-white-50'>
                               <i class='fas fa-pen-nib'></i>
                             </span>
                             <span class='text'>Modifier</span>
                           </a>  
                       </td>
-
-                      
                     </tr>
                     <?php
                   }
@@ -147,8 +138,6 @@
 
         </div>
         <!-- /.container-fluid -->
-        <?php 
-        } ?>
 
       </div>
       <!-- End of Main Content -->
@@ -157,7 +146,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Sicca-Area 2019</span>
           </div>
         </div>
       </footer>

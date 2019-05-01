@@ -40,26 +40,18 @@
         <?php require_once 'views/topbar.html.php'; ?>
         <!-- End of Topbar -->
 
-
-
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Ajouter une référence</h1>
 
-         <?php
-         if (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) !== '1')
-         {
-         ?> 
-
-               <form class="user" action="" method="post">
+               <form class="user" action="" method="post" enctype="multipart/form-data">
 
 
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" name="name" placeholder="Nom Référence">
+                    <input type="text" class="form-control form-control-user" name="name" placeholder="Nom Référence" required>
                   </div>
                   <div class="col-sm-6">
                       <input class="form-control form-control-user" type="date" name="date" value="2019-01-01">
@@ -68,64 +60,64 @@
                 
                 <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
+
+                    <!-- <label for="pet-select">Choose a pet:</label>
                     <select class="form-control form-control-user" name="position" placeholder="Position">
                       <option value="">Position</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
                       <option value="5">5</option>
+                    </select> -->
+
+                    <label for="pet-select">Position</label>
+                    <select name="position">
+                      <option value="">Position</option>
+                      <option value="2">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="2">6</option>
+                      <option value="2">7</option>
+                      <option value="3">8</option>
+                      <option value="4">9</option>
+                      <option value="5">10</option>
                     </select>
+
                 </div>
 
                 <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" name="snap" placeholder="Capture écran">
+                    <!-- <input type="file" class="form-control form-control-user" name="snap" placeholder="Capture écran"> -->
+                    <input type="file" name="snap" placeholder="Capture écran">
+
                 </div>
                 </div>
 
-                
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" name="password" placeholder="Url">
+                    <input type="text" class="form-control form-control-user" name="url" placeholder="Url">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" name="password2" placeholder="Texte Url">
+                    <input type="text" class="form-control form-control-user" name="urltxt" placeholder="Texte Url">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text-area" class="form-control form-control-user" name="email" placeholder="Description">
+                  <input type="text" class="form-control form-control-user" name="description" placeholder="Description">
                 </div>
 
-                
-                
-                
-  
-                <input type="submit" class="btn btn-primary btn-user btn-block" name="formSubscriber" value="Valider">
+                <input type="submit" class="btn btn-primary btn-user btn-block" name="formCredential" value="Valider">
+
+                <?php
+                if ($message!=null) 
+                {
+                  echo '<div class="col-xl-12"> <p class="font-weight-bold text-center text-danger">' . $message . '</p></div>';  
+                }
+                echo ('<div class="col-xl-12"> <p class="font-weight-bold text-center text-danger">Coucou je suis là</p></div>');
+                ?>
+
+
                </form>
-
-         <?php
-         }
-         elseif (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) == '1')
-         {
-         ?>
-         Bienvenue Abonné !
-
-         <?php
-         }
-         elseif (isset($_SESSION['id']) AND $userInfo->id_user != $_SESSION['id'])
-         {
-         ?>
-         Petit Malin !
-         <?php
-         }
-         else 
-         {
-         ?>        
-         Vous êtes deconnecté !
-         <?php           
-         }
-         ?>  
-
-
 
         </div>
         <!-- /.container-fluid -->
