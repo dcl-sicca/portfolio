@@ -77,10 +77,19 @@
         }
         // Complete the processing of the request 2
         $req2->closeCursor();
+        // format Date
+        $date = $row->credentials_date;
+        $dt_debut = date_create_from_format('Y-m-d', $date);
         ?>
 
-        <tr class="item" data-an="<?php echo $row->credentials_year; ?>" data-techno="<?php echo $techChain; ?>" data-position="<?php echo $row->credentials_position; ?>">
-            <th scope="row"><?php echo $row->credentials_year; ?></th>
+
+
+
+
+
+
+        <tr class="item" data-an="<?php echo $dt_debut->format('Y'); ?>" data-techno="<?php echo $techChain; ?>" data-position="<?php echo $row->credentials_position; ?>">
+            <th scope="row"><?php echo $dt_debut->format('Y'); ?></th>
             <td><img class="snapEcran thumbnail zoom" src="data:image/jpg;base64,<?php echo $row->credentials_snap; ?>" alt="<?php echo $row->credentials_name; ?>"></td>
             <td style="text-align: center;"><?php echo $techChainImg ;?></td>
             <td><?php echo $row->credentials_description; ?></td>

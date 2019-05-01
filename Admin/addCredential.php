@@ -19,13 +19,6 @@ if (isset($_GET['id']))
 
 
 
-
-
-
-
-
-
-
             
             if (isset($_POST['formCredential']))
             {
@@ -33,32 +26,66 @@ if (isset($_GET['id']))
                 $name = ($_POST['name']);
                 $date = ($_POST['date']);
                 $position = ($_POST['position']);
-                if (isset($_POST['snap'])) { $snap = $_POST['snap']; }
                 $url = ($_POST['url']);
                 $urltxt = ($_POST['urltxt']);
                 $description = ($_POST['description']);
+                $idUser = ($_SESSION['id']);
                 include 'model/add-credential.php';
 
+                      if ($_FILES['photo']['error']) {  
+                        switch ($_FILES['photo']['error']){  
+                              case 1: // UPLOAD_ERR_INI_SIZE  
+                                $message = "La taille du fichier est plus grande que la limite autorisée par le serveur (paramètre upload_max_filesize du fichier php.ini).";  
+                                break;  
+                              case 2: // UPLOAD_ERR_FORM_SIZE  
+                                $message = "La taille du fichier est plus grande que la limite autorisée par le formulaire (paramètre post_max_size du fichier php.ini)."; 
+                                break;  
+                              case 3: // UPLOAD_ERR_PARTIAL  
+                                $message = "L'envoi du fichier a été interrompu pendant le transfert."; 
+                                break;  
+                              case 4: // UPLOAD_ERR_NO_FILE  
+                                $message = "La taille du fichier que vous avez envoyé est nulle."; 
+                                break;  
+                            }  
+                      }  
+                      else 
+                      {  
+                      //s'il n'y a pas d'erreur alors $_FILES['nom_du_fichier']['error'] 
+                      //vaut 0  
+                        $messageOK = "Aucune erreur dans le transfert du fichier."; 
+                          if ((isset($_FILES['photo']['name'])&&($_FILES['photo']['error'] == UPLOAD_ERR_OK))) 
+                          { 
+                            $photo = $_FILES['photo']['name'];
+                            $chemin_destination = '../img/Ameria/'; 
+                            //déplacement du fichier du répertoire temporaire (stocké 
+                            //par défaut) dans le répertoire de destination 
+                            move_uploaded_file($_FILES['photo']['tmp_name'], $chemin_destination.$_FILES['photo']['name']); 
+                            $messageOK = "Le fichier ".$_FILES['photo']['name']." a été copié dans le répertoire photos"; 
+                          } 
+                          else 
+                          { 
+                            $message = "Le fichier n'a pas pu être copié dans le répertoire photos."; 
+                          } 
+                      } 
+               
 
-                var_dump ($name, $date, $position, $snap, $url, $urltxt, $description);
-
-                // $reqInsert->execute(array(
-                //   'name' => $name,
-                //   'date' => 2007,    
-                //   'position' => $position,
-                //   'snap' => $snap,
-                //   'url' => $url,
-                //   'urltxt' => $urltxt,
-                //   'description' => $description,
-                //   'id_user' => 7
-                //   ));
+                $reqInsert->execute(array(
+                  'name' => $name,
+                  'date' => $date,    
+                  'position' => $position,
+                  'snap' => $photo,
+                  'url' => $url,
+                  'urltxt' => $urltxt,
+                  'description' => $description,
+                  'id_user' => $idUser
+                  ));
 
 
                       
             }
             else
             {
-              $message=' ';
+              $message='OK';
             }
 
 

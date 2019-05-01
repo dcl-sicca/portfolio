@@ -73,23 +73,26 @@
                     <label for="pet-select">Position</label>
                     <select name="position">
                       <option value="">Position</option>
-                      <option value="2">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="2">6</option>
-                      <option value="2">7</option>
-                      <option value="3">8</option>
-                      <option value="4">9</option>
-                      <option value="5">10</option>
+                      <option value="31">31</option>
+                      <option value="32">32</option>
+                      <option value="33">33</option>
+                      <option value="34">34</option>
+                      <option value="35">35</option>
+                      <option value="36">36</option>
+                      <option value="37">37</option>
+                      <option value="38">38</option>
+                      <option value="39">39</option>
+                      <option value="40">40</option>
                     </select>
 
                 </div>
 
                 <div class="col-sm-6">
                     <!-- <input type="file" class="form-control form-control-user" name="snap" placeholder="Capture écran"> -->
-                    <input type="file" name="snap" placeholder="Capture écran">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="2097152"> 
+                    <p>Choisissez une photo avec une taille inférieure à 2 Mo.</p> 
+                    <input type="file" name="photo">
+
 
                 </div>
                 </div>
@@ -111,7 +114,9 @@
                 <?php
                 if ($message!=null) 
                 {
-                  echo '<div class="col-xl-12"> <p class="font-weight-bold text-center text-danger">' . $message . '</p></div>';  
+                  echo '<div class="col-xl-12"> <p class="font-weight-bold text-center text-danger">' . $message . '</p></div>';
+                  echo '<div class="col-xl-12"> <p class="font-weight-bold text-center text-success">' . $messageOK . '</p></div>';
+
                 }
                 echo ('<div class="col-xl-12"> <p class="font-weight-bold text-center text-danger">Coucou je suis là</p></div>');
                 ?>
