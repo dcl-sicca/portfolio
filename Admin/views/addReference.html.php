@@ -37,7 +37,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        <?php require_once 'topbar.php'; ?>
+        <?php require_once 'views/topbar.html.php'; ?>
         <!-- End of Topbar -->
 
 

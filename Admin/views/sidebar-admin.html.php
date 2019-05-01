@@ -14,7 +14,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="index.php?id=<?php echo $_SESSION['id'];?>">
             <a class="nav-link" href="index.php?id=<?php echo $_SESSION['id'];?>">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Tableau de Bord</span></a>
@@ -37,8 +37,8 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Custom Components:</h6>
-        <a class="collapse-item" href="buttons.html">Buttons</a>
-        <a class="collapse-item" href="cards.html">Cards</a>
+        <a class="collapse-item" href="buttons.php">Buttons</a>
+        <a class="collapse-item" href="cards.php">Cards</a>
     </div>
     </div>
 </li>
@@ -52,10 +52,10 @@
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Custom Utilities:</h6>
-        <a class="collapse-item" href="utilities-color.html">Colors</a>
-        <a class="collapse-item" href="utilities-border.html">Borders</a>
-        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-        <a class="collapse-item" href="utilities-other.html">Other</a>
+        <a class="collapse-item" href="utilities-color.php">Colors</a>
+        <a class="collapse-item" href="utilities-border.php">Borders</a>
+        <a class="collapse-item" href="utilities-animation.php">Animations</a>
+        <a class="collapse-item" href="utilities-other.php">Other</a>
     </div>
     </div>
 </li>
@@ -83,15 +83,15 @@
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Références:</h6>
                 <a class="collapse-item" href="addReference.php?id=<?php echo $_SESSION['id'];?>">Ajout Référence</a>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
+                <a class="collapse-item" href="404.php">404 Page</a>
+                <a class="collapse-item" href="blank.php">Blank Page</a>
     </div>
     </div>
 </li>
 
 <!-- Nav Item - Charts -->
 <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="charts.php">
     <i class="fas fa-fw fa-chart-area"></i>
     <span>Charts</span></a>
 </li>

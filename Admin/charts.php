@@ -13,7 +13,7 @@ if (isset($_GET['id']))
     {
         if (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) !== '1')
         {
-            require_once 'views/addReference.html.php';
+            require_once 'views/charts.html.php';
         }
         elseif (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) == '1')
         {

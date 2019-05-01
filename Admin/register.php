@@ -21,7 +21,6 @@ if (isset($_POST['formSubscriber']))
       'avatar' => $avatar,
       'id_role' => 1
       ));
-
           if (!empty($_POST['login']) && !empty($_POST['password']))
           {
             $login = $_POST['login'];
@@ -30,7 +29,6 @@ if (isset($_POST['formSubscriber']))
             $stmt->bindParam(':login', $login);
             $stmt->execute();
             $result = $stmt->fetch();
-            
               if (password_verify($password, $result->user_password))
               {
                   session_start();

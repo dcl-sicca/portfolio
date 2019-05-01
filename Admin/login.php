@@ -14,6 +14,9 @@ if (isset($_POST['formConnexion'])) {
       $stmt->execute();
       $result = $stmt->fetch();
 
+    // Vérifier le double mot de passe
+    // Vérifier si le login existe
+
       if (password_verify($password, $result->user_password))
       {
           session_start();

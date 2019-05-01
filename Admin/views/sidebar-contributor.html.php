@@ -14,7 +14,7 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="index.html">
+    <a class="nav-link" href="index.php?id=<?php echo $_SESSION['id'];?>">
             <a class="nav-link" href="index.php?id=<?php echo $_SESSION['id'];?>">
     <i class="fas fa-fw fa-tachometer-alt"></i>
     <span>Tableau de Bord</span></a>
@@ -37,10 +37,10 @@
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
     <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Custom Utilities:</h6>
-        <a class="collapse-item" href="utilities-color.html">Colors</a>
-        <a class="collapse-item" href="utilities-border.html">Borders</a>
-        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-        <a class="collapse-item" href="utilities-other.html">Other</a>
+        <a class="collapse-item" href="utilities-color.php">Colors</a>
+        <a class="collapse-item" href="utilities-border.php">Borders</a>
+        <a class="collapse-item" href="utilities-animation.php">Animations</a>
+        <a class="collapse-item" href="utilities-other.php">Other</a>
     </div>
     </div>
 </li>

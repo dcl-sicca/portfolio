@@ -28,91 +28,52 @@
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
-    <!-- Main Content -->
-    <div id="content">
+            <!-- Main Content -->
+            <div id="content">
 
-        <!-- Topbar -->
-        <?php require_once 'topbar.php'; ?>
+                <!-- Topbar -->
+                <?php require_once 'views/topbar.html.php'; ?>
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Mon Profil</h1>
-        </div>
-
-            <!-- -------------------------------- Content --------------------------------------- -->
-
-            <div class="col-xl-12 col-lg-7">
-                    <?php
-                    // On récupère le membre
-                    // $reqStatut = $bdd->prepare ('SELECT * 
-                    // FROM users,role
-                    // WHERE users.id_role = role.id_role
-                    // AND id_user = ?');
-
-                    include 'model/req-user-id.php';
-
-                    $userStatut = null;
-
-                    if (isset($_GET['id']))
-                    {
-                        $getId = $_GET['id'];
-                        $reqUser->bindParam(':Getid', $getId);
-                        $reqUser->execute();
-                        $userStatut = $reqUser->fetch();
-                    }
-
-                    ?>
-                    <?php
-                        if (isset($_SESSION['id']) AND $userInfo->id_user == $_SESSION['id'])
-                        {
-
-                                ?>
-                                <!-- Profil -->
-                                <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary"><?php echo $userStatut->user_pseudo; ?></h6>
+                        <!-- Page Heading -->
+                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h1 class="h3 mb-0 text-gray-800">Mon Profil</h1>
+                            </div>
+                                <!-- -------------------------------- Content --------------------------------------- -->
+                                <div class="col-xl-12 col-lg-7">
+                                    <!-- Profil -->
+                                    <div class="card shadow mb-4">
+                                        <div class="card-header py-3">
+                                            <h6 class="m-0 font-weight-bold text-primary"><?php echo $userInfo->user_pseudo; ?></h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <img src="../img/avatar/<?php echo $userInfo->user_avatar; ?>.jpg" alt="">
+                                            <p class="lead text-muted">
+                                                <b>Login : </b><?php echo $userInfo->user_login; ?><br>
+                                                <b>Pseudo : </b><?php echo $userInfo->user_pseudo; ?><br>
+                                                <b>Nom : </b><?php echo $userInfo->user_name; ?><br>
+                                                <b>Email : </b><?php echo $userInfo->user_email; ?><br>
+                                                <b>Rôle Statut : </b><?php echo  $_SESSION['role_status']; ?><br>
+                                                <b>Rôle : </b><?php echo $userInfo->role_name; ?><br>
+                                            </p>
+                                            <p>
+                                                <a href="modif-profil.php?id=<?php echo $_SESSION['id'];?>" class="btn btn-primary my-2">Modifier votre profil</a>
+                                                <a href="#" class="btn btn-secondary my-2">Modifier votre mot de passe</a>
+                                            </p>
+                                        <div>
                                     </div>
-                                    <div class="card-body">
-                                    <p>
-                                <div>
-                                <img src="../img/avatar/<?php echo $userStatut->user_avatar; ?>.jpg" alt="">
-
-                                <p class="lead text-muted">
-                                <b>Login : </b><?php echo $userStatut->user_login; ?><br>
-                                <b>Pseudo : </b><?php echo $userStatut->user_pseudo; ?><br>
-                                <b>Nom : </b><?php echo $userStatut->user_name; ?><br>
-                                <b>Email : </b><?php echo $userStatut->user_email; ?><br>
-                                <b>Rôle Statut : </b><?php echo  $_SESSION['role_status']; ?><br>
-                                <b>Rôle : </b><?php echo $userStatut->role_name; ?><br>
-                                </p>
-                                <p>
-                                    <a href="modif-profil.php?id=<?php echo $_SESSION['id'];?>" class="btn btn-primary my-2">Modifier votre profil</a>
-                                    <a href="#" class="btn btn-secondary my-2">Modifier votre mot de passe</a>
-                                </p>
                                 </div>
-
-                                <?php
-                        }
-                        else 
-                        {
-                        ?>
-                        Petit Malin !
-                        <?php
-                        }
-                        ?>  
-
-                    </p>
+                            </div> 
+                            
+                        </div>
+                        <!-- end of Page Heading --> 
                     </div>
-                </div> 
-              
-            </div> 
-        </div>
+                    <!-- End of Begin Page Content -->
 
-    </div>
-    <!-- End of Main Content -->
+            </div>
+            <!-- End of Main Content -->
 
     <!-- Footer -->
     <footer class="sticky-footer bg-white">

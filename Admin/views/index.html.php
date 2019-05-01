@@ -37,7 +37,7 @@
     <div id="content">
 
         <!-- Topbar -->
-        <?php require_once 'topbar.php'; ?>
+        <?php require_once 'views/topbar.html.php'; ?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -48,10 +48,7 @@
             <h1 class="h3 mb-0 text-gray-800">Tableau de Bord</h1>
         </div>
 
-            <?php
-            if (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) !== '1')
-            {
-            ?>        
+                   
             <!-- Content Row -->
             <div class="row">
 
@@ -65,7 +62,10 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                             <?php 
                                 include 'model/count-credentials.php';
+                                $reqCount->execute();
+                                $numberReferences = $reqCount->fetch();
                                 echo($numberReferences->PercentTech_references. ' références');
+                                $reqCount->closeCursor(); // Complete the processing of the request
                             ?>
                         </div>
                         </div>
@@ -152,9 +152,9 @@
                     <!-- Card Body -->
                     <div class="card-body">
                     <div class="chart-area">
-                        
                         <?php
                         include 'model/req-credentials-limit.php';
+                        $reponse->execute();
 
                         // Each input is displayed one by one
                         while ($donnees = $reponse->fetch())
@@ -169,7 +169,6 @@
                         }
                         $reponse->closeCursor(); // Complete the processing of the request
                         ?>
-
                     </div>
                     </div>
                 </div>
@@ -177,21 +176,15 @@
 
                 <!-- Pie Chart ------------------------------------------------------------->
                 <?php 
-                
-                $reqTech = $bdd->prepare('SELECT technology_name,Count(technology_name) 
-                AS PercentTech FROM have INNER JOIN technology ON have.id_technology = technology.id_technology 
-                WHERE technology_name != " " GROUP BY technology_name
-                ORDER BY technology_name DESC');
-
                 // Voir en rajoutant like php pour php et cie
                 // SELECT *,Count(technology_name) 
                 // AS PercentTech FROM have INNER JOIN technology ON have.id_technology = technology.id_technology 
                 // WHERE technology_name LIKE 'PHP'
-
+                
+                include 'model/req-technology.php';
                 $reqTech->execute();
 
                 // create array technology
-                // $techno = array(0 => array(), 1 => array());
                 while ($userTech = $reqTech->fetch())  
                 {
                     $techno[] = $userTech->technology_name;
@@ -243,21 +236,8 @@
                 </div>
                 </div>
             </div>
-            <?php
-            }
-            elseif (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) == '1')
-            {
-            ?>
-            Bienvenue Abonné !
-            <?php
-            }
-            else 
-            {
-            ?>
-            Petit Malin !
-            <?php
-            }
-            ?>  
+            
+            
         </div>
         <!-- /.container-fluid -->
 
