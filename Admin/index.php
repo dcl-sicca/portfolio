@@ -1,5 +1,5 @@
 <?php session_start();
-require 'model/pdo-admin.php';
+require_once 'model/pdo-admin.php';
 
 if (isset($_GET['id'])) 
 {
@@ -9,7 +9,7 @@ if (isset($_GET['id']))
   $reqUser->execute();
   $userInfo = $reqUser->fetch();
 
-    if ($userInfo != false)
+    if ($userInfo !== false)
     {
         if (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) !== '1')
         {

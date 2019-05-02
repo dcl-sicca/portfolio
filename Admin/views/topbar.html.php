@@ -19,7 +19,5 @@
     <!-- Dropdown - User Information -->
     <?php require_once 'views/dropdown-user-info.html.php';?>
     </li>
-
 </ul>
-
 </nav>

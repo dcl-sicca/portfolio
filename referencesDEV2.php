@@ -2,7 +2,7 @@
 	session_start();
     $_SESSION['use_session'] = 'yes';
     // Connect to BDD
-    require 'pdo.php';
+    require 'model/pdo.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -57,19 +57,14 @@
     <tbody class="card-container">
     <?php
     // // bdd preparation of the request references
-    $req = $bdd->prepare('SELECT * FROM credentials NATURAL JOIN users');
+    include 'model/req-credential.php';
     $req -> execute();
     // Each input is displayed one by one
     while ($row = $req->fetch())
     {
         $techChainImg = '';
         $techChain = '';
-        $req2 = $bdd->prepare("SELECT * FROM have
-                INNER JOIN technology ON have.id_technology = technology.id_technology
-                WHERE have.id_credentials = :idcredentials");
-                $req2->execute(array(
-                    'idcredentials' => $row->id_credentials
-                ));
+        include 'model/req-technology.php';
         // Each technology is displayed one by one
         while ($row2 = $req2->fetch()){
             $techChain = $row2->technology_name.' '.$techChain;
@@ -79,20 +74,17 @@
         $req2->closeCursor();
         // format Date
         $date = $row->credentials_date;
-        $dt_debut = date_create_from_format('Y-m-d', $date);
+        $year = date_create_from_format('Y-m-d', $date);
         ?>
-
-        <tr class="item" data-an="<?php echo $dt_debut->format('Y'); ?>" data-techno="<?php echo $techChain; ?>" data-position="<?php echo $row->credentials_position; ?>">
-            <th scope="row"><?php echo $dt_debut->format('Y'); ?></th>
-            <td><img class="snapEcran thumbnail zoom" src="data:image/jpg;base64,<?php echo $row->credentials_snap; ?>" alt="<?php echo $row->credentials_name; ?>"></td>
+        <tr class="item" data-an="<?php echo $year->format('Y'); ?>" data-techno="<?php echo $techChain; ?>" data-position="<?php echo $row->credentials_position; ?>">
+            <th scope="row"><?php echo $year->format('Y'); ?></th>
+            <td><img class="snapEcran thumbnail zoom" src="img/Ameria/<?php echo $row->credentials_snap2; ?>" alt="<?php echo $row->credentials_name; ?>"></td>
             <td style="text-align: center;"><?php echo $techChainImg ;?></td>
             <td><?php echo $row->credentials_description; ?></td>
-            <td><a href="<?php echo $row->credentials_url; ?>" target="blank"><i class="fas fa-external-link-alt"></i> <?php echo $row->credentials_urltxt; ?></a></td>
+            <td><a href="img/Ameria/<?php echo $row->credentials_url; ?>" target="blank"><i class="fas fa-external-link-alt"></i> <?php echo $row->credentials_urltxt; ?></a></td>
         </tr>
-
         <?php
     }
-
         // Complete the processing of the request
         $req->closeCursor();
         ?>

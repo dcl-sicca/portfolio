@@ -10,7 +10,7 @@ charset=utf-8" />
 
 
 <?php 
-$connect = mysqli_connect("127.0.0.1", "root", "", "blogphp"); 
+$connect = mysqli_connect("127.0.0.1", "root", "Am35sicc@25$$", "blogphp"); 
  
 /* Vérification de la connexion */ 
 if (!$connect) { 

@@ -14,15 +14,10 @@ if (isset($_GET['id']))
         if (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) !== '1')
         {
             $message=null;
+            $messageOK=null;
             require_once 'views/addCredential.html.php';
-
-
-
-
-            
             if (isset($_POST['formCredential']))
             {
-                  
                 $name = ($_POST['name']);
                 $date = ($_POST['date']);
                 $position = ($_POST['position']);
@@ -32,7 +27,11 @@ if (isset($_GET['id']))
                 $idUser = ($_SESSION['id']);
                 include 'model/add-credential.php';
 
+                var_dump($_SESSION);
+                var_dump($_FILES['photo']['error']);
+
                       if ($_FILES['photo']['error']) {  
+                        error_log('error');
                         switch ($_FILES['photo']['error']){  
                               case 1: // UPLOAD_ERR_INI_SIZE  
                                 $message = "La taille du fichier est plus grande que la limite autorisée par le serveur (paramètre upload_max_filesize du fichier php.ini).";  
@@ -68,7 +67,6 @@ if (isset($_GET['id']))
                           } 
                       } 
                
-
                 $reqInsert->execute(array(
                   'name' => $name,
                   'date' => $date,    
@@ -79,56 +77,12 @@ if (isset($_GET['id']))
                   'description' => $description,
                   'id_user' => $idUser
                   ));
-
-
-                      
+     
             }
             else
             {
               $message='OK';
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         }
         elseif (isset($_SESSION['id']) AND $userInfo->id_user === $_SESSION['id'] && ($_SESSION['role_status']) == '1')

@@ -155,7 +155,6 @@
                         <?php
                         include 'model/req-credentials-limit.php';
                         $reponse->execute();
-
                         // Each input is displayed one by one
                         while ($donnees = $reponse->fetch())
                         {
@@ -176,11 +175,6 @@
 
                 <!-- Pie Chart ------------------------------------------------------------->
                 <?php 
-                // Voir en rajoutant like php pour php et cie
-                // SELECT *,Count(technology_name) 
-                // AS PercentTech FROM have INNER JOIN technology ON have.id_technology = technology.id_technology 
-                // WHERE technology_name LIKE 'PHP'
-                
                 include 'model/req-technology.php';
                 $reqTech->execute();
 
@@ -191,12 +185,6 @@
                     $PercentTech[] = $userTech->PercentTech;
                 }
                 $reponse->closeCursor(); // Complete the processing of the request
-                  
-                // var_dump($techno);
-                // var_dump($PercentTech);
-                // echo('Techno ='.$techno[0]);
-                // echo('PercentTech ='.$PercentTech[0]);
-                  
                 ?>
                 <div class="col-xl-4 col-lg-5">
                 <div class="card shadow mb-4">

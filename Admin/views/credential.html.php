@@ -90,7 +90,6 @@
                   // Each input is displayed one by one
                   while ($row = $req->fetch())
                   {
-                    $techChainImg = '';
                     $techChain = '';
 
                     include 'model/req-credential-technology.php';
@@ -100,13 +99,15 @@
                       while ($row2 = $req2->fetch())
                       {
                         $techChain = $row2->technology_name.' '.$techChain;
-                        $techChainImg = '<img class="logos" src="img/logos/'.$row2->technology_img.'.png"> '.$techChainImg;
                       }
                     // Complete the processing of the request 2
                     $req2->closeCursor();
+                    // format Date
+                    $date = $row->credentials_date;
+                    $year = date_create_from_format('Y-m-d', $date);
                     ?>
                     <tr>
-                      <td><?php echo $row->credentials_year; ?></td>
+                      <td><?php echo $year->format('Y-F'); ?></td>
                       <td><?php echo $row->credentials_name; ?></td>
                       <td><?php echo $techChain ;?></td>
                       <?php

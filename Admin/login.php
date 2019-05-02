@@ -1,4 +1,4 @@
-<?php require 'model/pdo-admin.php';
+<?php require_once 'model/pdo-admin.php';
 $message = null;
 
 if (isset($_POST['formConnexion'])) {
@@ -8,7 +8,7 @@ if (isset($_POST['formConnexion'])) {
     // Check if the login exists
     $login = $_POST['login'];
     $password = $_POST['password'];
-    require 'model/req-user.php';
+    include 'model/req-user.php';
 
       $stmt->bindParam(':login', $login);
       $stmt->execute();

@@ -9,7 +9,7 @@
    <h2>Blog</h2> 
    <hr /> 
    <?php 
-   $connect = mysqli_connect("127.0.0.1", "root", "", "blogphp"); 
+   $connect = mysqli_connect("127.0.0.1", "root", "Am35sicc@25$$", "blogphp"); 
  
    /* Vérification de la connexion */ 
    if (!$connect) { 
@@ -24,7 +24,7 @@
       while ($ligne = mysqli_fetch_assoc($resultat)) { 
          $dt_debut = date_create_from_format('Y-m-d', $ligne['Date']); 
          echo "<h3>".$ligne['Titre']."</h3>"; 
-         echo "<h4>Le ".$dt_debut->format('Y')."</h4>"; 
+         // echo "<h4>Le ".$dt_debut->format('Y')."</h4>"; 
          echo "<div style='width:400px'>".$ligne['Commentaire']." </div>"; 
          if ($ligne['Photo'] != "") { 
             echo "<img src='photos/".$ligne['Photo']."' width='200px' height='200px'/>"; 

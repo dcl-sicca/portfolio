@@ -115,10 +115,12 @@
                 if ($message!=null) 
                 {
                   echo '<div class="col-xl-12"> <p class="font-weight-bold text-center text-danger">' . $message . '</p></div>';
-                  echo '<div class="col-xl-12"> <p class="font-weight-bold text-center text-success">' . $messageOK . '</p></div>';
-
                 }
-                echo ('<div class="col-xl-12"> <p class="font-weight-bold text-center text-danger">Coucou je suis là</p></div>');
+                elseif ($messageOK!=null) 
+                {
+                  echo '<div class="col-xl-12"> <p class="font-weight-bold text-center text-success">' . $messageOK . '</p></div>';
+                }
+                var_dump($message, $messageOK);
                 ?>
 
 
