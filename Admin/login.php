@@ -1,6 +1,5 @@
 <?php require_once 'model/pdo-admin.php';
 $message = null;
-
 if (isset($_POST['formConnexion'])) {
 
   if (!empty($_POST['login']) && !empty($_POST['password']))
@@ -13,10 +12,7 @@ if (isset($_POST['formConnexion'])) {
       $stmt->bindParam(':login', $login);
       $stmt->execute();
       $result = $stmt->fetch();
-
-    // Vérifier le double mot de passe
-    // Vérifier si le login existe
-
+      // TODO : Vérifier si le login existe
       if (password_verify($password, $result->user_password))
       {
           session_start();
@@ -36,3 +32,4 @@ if (isset($_POST['formConnexion'])) {
   }
 }
 require_once 'views/login.html.php';
+

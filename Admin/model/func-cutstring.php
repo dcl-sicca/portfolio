@@ -6,3 +6,4 @@ function cutString($string, $start, $length, $endStr = '[&hellip]')
    $str = mb_substr( $string, $start, $length - strlen( $endStr ) + 1, 'UTF-8');
    return substr( $str, 0, strrpos( $str,' ') ).$endStr;
 }
+

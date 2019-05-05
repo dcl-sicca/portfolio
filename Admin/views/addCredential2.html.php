@@ -46,7 +46,7 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Ajouter une référence</h1>
 
-               <form class="user" action="" method="post" enctype="multipart/form-data">
+               <form class="user" action="views/addCredentialResult.html.php" method="post" enctype="multipart/form-data">
 
 
                 <div class="form-group row">
@@ -73,26 +73,16 @@
                     <label for="pet-select">Position</label>
                     <select name="position">
                       <option value="">Position</option>
-                      <option value="41">41</option>
-                      <option value="42">42</option>
-                      <option value="43">43</option>
-                      <option value="44">44</option>
-                      <option value="45">45</option>
-                      <option value="46">46</option>
-                      <option value="47">47</option>
-                      <option value="48">48</option>
-                      <option value="49">49</option>
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
+                      <option value="31">31</option>
+                      <option value="32">32</option>
+                      <option value="33">33</option>
+                      <option value="34">34</option>
+                      <option value="35">35</option>
+                      <option value="36">36</option>
+                      <option value="37">37</option>
+                      <option value="38">38</option>
+                      <option value="39">39</option>
+                      <option value="40">40</option>
                     </select>
 
                 </div>
@@ -130,7 +120,7 @@
                 {
                   echo '<div class="col-xl-12"> <p class="font-weight-bold text-center text-success">' . $messageOK . '</p></div>';
                 }
-                // var_dump($message, $messageOK);
+                var_dump($message, $messageOK);
                 ?>
 
 

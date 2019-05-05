@@ -65,6 +65,9 @@
         $techChainImg = '';
         $techChain = '';
         include 'model/req-technology.php';
+        $req2->execute(array(
+            'idcredentials' => $row->id_credentials
+        ));
         // Each technology is displayed one by one
         while ($row2 = $req2->fetch()){
             $techChain = $row2->technology_name.' '.$techChain;

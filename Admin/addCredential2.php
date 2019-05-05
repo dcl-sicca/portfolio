@@ -15,7 +15,7 @@ if (isset($_GET['id']))
         {
             $message=null;
             $messageOK=null;
-            require 'views/addCredential.html.php';
+            require 'views/addCredential2.html.php';
             if (isset($_POST['formCredential']))
             {
                 $name = ($_POST['name']);
@@ -26,10 +26,15 @@ if (isset($_GET['id']))
                 $description = ($_POST['description']);
                 $idUser = ($_SESSION['id']);
                 include 'model/add-credential.php';
+
+                var_dump($_SESSION);
+                var_dump($_FILES['photo']['error']);
+
                       if ($_FILES['photo']['error']) {  
+                        error_log('error');
                         switch ($_FILES['photo']['error']){  
                               case 1: // UPLOAD_ERR_INI_SIZE  
-                                $message = "La taille du fichier est plus grande que la limite autorisée par le serveur (paramètre upload_max_filesize du fichier php.ini)."; 
+                                $message = "La taille du fichier est plus grande que la limite autorisée par le serveur (paramètre upload_max_filesize du fichier php.ini).";  
                                 break;  
                               case 2: // UPLOAD_ERR_FORM_SIZE  
                                 $message = "La taille du fichier est plus grande que la limite autorisée par le formulaire (paramètre post_max_size du fichier php.ini)."; 
@@ -44,14 +49,15 @@ if (isset($_GET['id']))
                       }  
                       else 
                       {  
-                      //if there are no mistakes then $_FILES['nom_du_fichier']['error'] 
-                      //is 0  
+                      //s'il n'y a pas d'erreur alors $_FILES['nom_du_fichier']['error'] 
+                      //vaut 0  
                           $messageOK = "Aucune erreur dans le transfert du fichier."; 
                           if ((isset($_FILES['photo']['name'])&&($_FILES['photo']['error'] == UPLOAD_ERR_OK))) 
                           { 
                             $photo = $_FILES['photo']['name'];
                             $chemin_destination = '../img/Ameria/'; 
-                            //Moving the file from the temporary directory (stored by default) to the destination directory 
+                            //déplacement du fichier du répertoire temporaire (stocké 
+                            //par défaut) dans le répertoire de destination 
                             move_uploaded_file($_FILES['photo']['tmp_name'], $chemin_destination.$_FILES['photo']['name']); 
                             $messageOK = "Le fichier ".$_FILES['photo']['name']." a été copié dans le répertoire photos"; 
                           } 

@@ -54,7 +54,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Référence d Sicca-Area</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Références de Sicca-Area</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
