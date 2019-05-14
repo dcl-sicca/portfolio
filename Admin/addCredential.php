@@ -25,7 +25,15 @@ if (isset($_GET['id']))
                 $urltxt = ($_POST['urltxt']);
                 $description = ($_POST['description']);
                 $idUser = ($_SESSION['id']);
+                $id_technology = ($_POST['technology1']);
+
+
+                
+                $id_credentials = '12';
+
                 include 'model/add-credential.php';
+                include 'model/add-technology.php';
+
                       if ($_FILES['photo']['error']) {  
                         switch ($_FILES['photo']['error']){  
                               case 1: // UPLOAD_ERR_INI_SIZE  
@@ -60,17 +68,24 @@ if (isset($_GET['id']))
                             $message = "Le fichier n'a pas pu être copié dans le répertoire photos."; 
                           } 
                       } 
-               
-                $reqInsert->execute(array(
-                  'name' => $name,
-                  'date' => $date,    
-                  'position' => $position,
-                  'snap' => $photo,
-                  'url' => $url,
-                  'urltxt' => $urltxt,
-                  'description' => $description,
-                  'id_user' => $idUser
-                  ));
+                // $reqInsert->execute(array(
+                //   'name' => $name,
+                //   'date' => $date,    
+                //   'position' => $position,
+                //   'snap' => $photo,
+                //   'url' => $url,
+                //   'urltxt' => $urltxt,
+                //   'description' => $description,
+                //   'id_user' => $idUser
+                //   ));
+
+                // if (isset($_POST['technology1'])) {
+                  $reqTech1->execute(array(
+                    'id_technology' => $id_technology,
+                    'id_credentials' => 12
+                    ));
+                // }
+                
      
             }
             else

@@ -81,10 +81,10 @@
         ?>
         <tr class="item" data-an="<?php echo $year->format('Y'); ?>" data-techno="<?php echo $techChain; ?>" data-position="<?php echo $row->credentials_position; ?>">
             <th scope="row"><?php echo $year->format('Y'); ?></th>
-            <td><img class="snapEcran thumbnail zoom" src="img/Ameria/<?php echo $row->credentials_snap2; ?>" alt="<?php echo $row->credentials_name; ?>"></td>
+            <td><img class="snapEcran thumbnail zoom" src="img/Ameria/<?php echo $row->credentials_snap; ?>" alt="<?php echo $row->credentials_name; ?>"></td>
             <td style="text-align: center;"><?php echo $techChainImg ;?></td>
             <td><?php echo $row->credentials_description; ?></td>
-            <td><a href="img/Ameria/<?php echo $row->credentials_url; ?>" target="blank"><i class="fas fa-external-link-alt"></i> <?php echo $row->credentials_urltxt; ?></a></td>
+            <td><a href="<?php echo $row->credentials_url; ?>" target="blank"><i class="fas fa-external-link-alt"></i> <?php echo $row->credentials_urltxt; ?></a></td>
         </tr>
         <?php
     }

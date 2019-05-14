@@ -160,9 +160,9 @@
                         {
                         ?>
                             <p>
-                            <strong>Référence</strong> : <?php echo $donnees->credentials_name; ?><br />    
-                            <strong>Date</strong> : <?php echo $donnees->credentials_year; ?><br />
-                            <strong>Lien</strong> : <?php echo $donnees->credentials_urltxt; ?><br />
+                            <strong>Référence</strong> : <?php echo $donnees->credentials_name; ?><br>    
+                            <strong>Date</strong> : <?php echo $donnees->credentials_year; ?><br>
+                            <strong>Lien</strong> : <?php echo $donnees->credentials_urltxt; ?><br>
                             </p>
                         <?php
                         }
@@ -175,7 +175,7 @@
 
                 <!-- Pie Chart ------------------------------------------------------------->
                 <?php 
-                include 'model/req-technology.php';
+                include 'model/req-countechnology.php';
                 $reqTech->execute();
 
                 // create array technology

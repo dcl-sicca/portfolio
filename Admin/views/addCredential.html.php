@@ -44,7 +44,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Ajouter une référence</h1>
+          <h1 class="h3 mb-4 text-gray-800">Ajouter une référence 2</h1>
 
                <form class="user" action="" method="post" enctype="multipart/form-data">
 
@@ -59,52 +59,104 @@
                 </div>
                 
                 <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                      <label for="pet-select">Position</label>
+                      <select name="position">
+                        <option value="">Position</option>
 
-                    <!-- <label for="pet-select">Choose a pet:</label>
-                    <select class="form-control form-control-user" name="position" placeholder="Position">
-                      <option value="">Position</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                    </select> -->
+                        <?php 
+                        include 'model/req-position.php';
+                        for ($i=1; $i<101; $i++) {
+                        
+                        $reqPosition->bindParam(':getPosition', $i);
+                        $reqPosition->execute();
+                        $position = $reqPosition->fetch();
+                        
+                          if ($position == false) 
+                          {
+                            ?><option value="<?php echo($i);?>"><?php echo($i);?></option><?php
+                          } else { 
+        
+                          }
+                        }
+                        ?>
+                      </select>
+                  </div>
 
-                    <label for="pet-select">Position</label>
-                    <select name="position">
-                      <option value="">Position</option>
-                      <option value="41">41</option>
-                      <option value="42">42</option>
-                      <option value="43">43</option>
-                      <option value="44">44</option>
-                      <option value="45">45</option>
-                      <option value="46">46</option>
-                      <option value="47">47</option>
-                      <option value="48">48</option>
-                      <option value="49">49</option>
-                      <option value="50">50</option>
-                      <option value="51">51</option>
-                      <option value="52">52</option>
-                      <option value="53">53</option>
-                      <option value="54">54</option>
-                      <option value="55">55</option>
-                      <option value="56">56</option>
-                      <option value="57">57</option>
-                      <option value="58">58</option>
-                      <option value="59">59</option>
-                      <option value="60">60</option>
+                  <div class="col-sm-6">
+                      <!-- <input type="file" class="form-control form-control-user" name="snap" placeholder="Capture écran"> -->
+                      <input type="hidden" name="MAX_FILE_SIZE" value="2097152"> 
+                      <p>Choisissez une photo avec une taille inférieure à 2 Mo.</p> 
+                      <input type="file" name="photo">
+
+
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                      <label for="technology1">Technologie 1</label>
+                      <select name="technology1">
+                        <option value="">Technologie</option>
+                        <?php 
+                        include 'model/req-technology.php';
+                        $reqTech->execute();
+                        while ($technology = $reqTech->fetch())
+                        {
+                            ?><option value="<?php echo($technology->id_technology);?>"><?php echo($technology->technology_name);?></option><?php
+                        }
+                        $reqTech->closeCursor();
+                        ?>
+                      </select>
+                  </div>
+
+                  <div class="col-sm-6">
+                  <label for="technology2">Technologie 2</label>
+                    <select name="technology2">
+                      <option value="">Technologie</option>
+                      <?php 
+                      include 'model/req-technology.php';
+                      $reqTech->execute();
+                      while ($technology = $reqTech->fetch())
+                      {
+                          ?><option value="<?php echo($technology->id_technology);?>"><?php echo($technology->technology_name);?></option><?php
+                      }
+                      $reqTech->closeCursor();
+                      ?>
                     </select>
-
+                  </div>
                 </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                      <label for="technology3">Technologie 3</label>
+                      <select name="technology3">
+                        <option value="">Technologie</option>
+                        <?php 
+                        include 'model/req-technology.php';
+                        $reqTech->execute();
+                        while ($technology = $reqTech->fetch())
+                        {
+                            ?><option value="<?php echo($technology->id_technology);?>"><?php echo($technology->technology_name);?></option><?php
+                        }
+                        $reqTech->closeCursor();
+                        ?>
+                      </select>
+                  </div>
 
-                <div class="col-sm-6">
-                    <!-- <input type="file" class="form-control form-control-user" name="snap" placeholder="Capture écran"> -->
-                    <input type="hidden" name="MAX_FILE_SIZE" value="2097152"> 
-                    <p>Choisissez une photo avec une taille inférieure à 2 Mo.</p> 
-                    <input type="file" name="photo">
-
-
-                </div>
+                  <div class="col-sm-6">
+                  <label for="technology4">Technologie 4</label>
+                    <select name="technology4">
+                      <option value="">Technologie</option>
+                      <?php 
+                      include 'model/req-technology.php';
+                      $reqTech->execute();
+                      while ($technology = $reqTech->fetch())
+                      {
+                          ?><option value="<?php echo($technology->id_technology);?>"><?php echo($technology->technology_name);?></option><?php
+                      }
+                      $reqTech->closeCursor();
+                      ?>
+                    </select>
+                  </div>
                 </div>
 
                 <div class="form-group row">
