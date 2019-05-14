@@ -10,7 +10,14 @@
 Hello
 
 <?php 
-echo($_POST['technology1']);
+require 'model/pdo-admin.php';
+$resultshowstatus = $bdd->prepare('SHOW TABLE STATUS LIKE "credentials"');
+
+$resultshowstatus -> execute();
+$id = $resultshowstatus->fetch();
+$id_credentials = $id->Auto_increment;
+
+var_dump($id_credentials);
 ?>
     
 </body>

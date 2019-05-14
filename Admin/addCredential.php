@@ -25,11 +25,15 @@ if (isset($_GET['id']))
                 $urltxt = ($_POST['urltxt']);
                 $description = ($_POST['description']);
                 $idUser = ($_SESSION['id']);
-                $id_technology = ($_POST['technology1']);
+                $id_technology1 = ($_POST['technology1']);
+                $id_technology2 = ($_POST['technology2']);
+                $id_technology3 = ($_POST['technology3']);
+                $id_technology4 = ($_POST['technology4']);
 
-
-                
-                $id_credentials = '12';
+                include 'model/req-idauto-credentials.php';
+                $resultshowstatus -> execute();
+                $id = $resultshowstatus->fetch();
+                $id_credentials = $id->Auto_increment;
 
                 include 'model/add-credential.php';
                 include 'model/add-technology.php';
@@ -68,23 +72,50 @@ if (isset($_GET['id']))
                             $message = "Le fichier n'a pas pu être copié dans le répertoire photos."; 
                           } 
                       } 
-                // $reqInsert->execute(array(
-                //   'name' => $name,
-                //   'date' => $date,    
-                //   'position' => $position,
-                //   'snap' => $photo,
-                //   'url' => $url,
-                //   'urltxt' => $urltxt,
-                //   'description' => $description,
-                //   'id_user' => $idUser
-                //   ));
+                $reqInsert->execute(array(
+                  'name' => $name,
+                  'date' => $date,    
+                  'position' => $position,
+                  'snap' => $photo,
+                  'url' => $url,
+                  'urltxt' => $urltxt,
+                  'description' => $description,
+                  'id_user' => $idUser
+                  ));
 
-                // if (isset($_POST['technology1'])) {
-                  $reqTech1->execute(array(
-                    'id_technology' => $id_technology,
-                    'id_credentials' => 12
+                if (isset($_POST['technology1'])) {
+                  $reqTech->execute(array(
+                    'id_technology' => $id_technology1,
+                    'id_credentials' => $id_credentials
                     ));
-                // }
+                  $reqTech->closeCursor();  
+                }
+
+                if (isset($_POST['technology2'])) {
+                  $reqTech->execute(array(
+                    'id_technology' => $id_technology2,
+                    'id_credentials' => $id_credentials
+                    ));
+                  $reqTech->closeCursor();
+                }
+
+                if (isset($_POST['technology3'])) {
+                  $reqTech->execute(array(
+                    'id_technology' => $id_technology3,
+                    'id_credentials' => $id_credentials
+                    ));
+                  $reqTech->closeCursor();
+                }
+
+                if (isset($_POST['technology4'])) {
+                  $reqTech->execute(array(
+                    'id_technology' => $id_technology4,
+                    'id_credentials' => $id_credentials
+                    ));
+                  $reqTech->closeCursor();
+                }
+
+
                 
      
             }

@@ -44,7 +44,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Ajouter une référence 2</h1>
+          <h1 class="h3 mb-4 text-gray-800">Ajouter une référence</h1>
 
                <form class="user" action="" method="post" enctype="multipart/form-data">
 
